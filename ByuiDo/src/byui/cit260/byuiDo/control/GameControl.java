@@ -45,10 +45,10 @@ public class GameControl {
    //call setter to save the game in the main class of program
    ByuiDo.setCurrentGame(game);
    // call setter to assign an actor to the player
-   player.setActor(Actor.Anna);
+   player.setActor(Actor.Player);
    // Create the lists used in the game
    //items = createItems()
-    InventoryItem[] inventoryList = createInventoryList();
+    InventoryItem[] inventoryList = createItems();
 
 call setter to save items list in the game object
 // Create all other list (e.g., questions, weapons, spells) and save in the game
@@ -61,13 +61,37 @@ call setter to save the map in the game object
 RETURN 1 // indicates success
     }
 
-    private static InventoryItem[] createInventoryList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private static InventoryItem[] createItems() {
+        System.out.println("createItems() Called");
+        InventoryItem[] inventory = new InventoryItem[3];
+        
+        
+        InventoryItem guitar = new InventoryItem();
+        guitar.setDescription("Guitar");
+        guitar.setQuantityInStock(0);
+        guitar.setRequiredAmount(0);
+        guitar.setCost(100);
+        
+        InventoryItem calculator = new InventoryItem();
+        calculator.setDescription("Calculator");
+        calculator.setQuantityInStock(0);
+        calculator.setRequiredAmount(0);
+        calculator.setCost(35);
+        
+        InventoryItem gymClothes = new InventoryItem();
+        gymClothes.setDescription("Gym Clothes");
+        gymClothes.setQuantityInStock(0);
+        gymClothes.setRequiredAmount(0);
+        gymClothes.setCost(25);
+        
+        InventoryItem flowers = new InventoryItem();
+        flowers.setDescription("Flowers");
+        flowers.setQuantityInStock(0);
+        flowers.setRequiredAmount(0);
+        flowers.setCost(5);
+        return inventory;
     }
 
 
-    private static void createItems() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
 }
