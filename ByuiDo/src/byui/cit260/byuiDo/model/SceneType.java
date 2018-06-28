@@ -5,15 +5,10 @@
  */
 package byui.cit260.byuiDo.model;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Jake
  */
-public enum QuestionType implements Serializable{
-    date,
-    socialize,
-    temple;
-            
+public class SceneType {
+    
 }

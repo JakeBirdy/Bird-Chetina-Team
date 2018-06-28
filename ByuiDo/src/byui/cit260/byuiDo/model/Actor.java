@@ -14,7 +14,9 @@ public enum Actor implements Serializable {
     Player("Player", "You!", new Point(0,0), "Player"),
     John("John", "He likes sports", new Point(1,1), "M"),
     David("David", "He likes math", new Point(1,2), "M"),
-    Anna("Anna", "She likes music", new Point(1,3), "F"),
+    Jake("Jake", "He is awesome", new Point(1,4), "M"),
+    Tatiana("Tatiana", "She is awesome", new Point(1,3), "F"),
+    Anna("Anna", "She likes music", new Point(1,5), "F"),
     Gabby("Gabby", "She likes sports", new Point(1,4), "F");
     
     

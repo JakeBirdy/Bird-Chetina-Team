@@ -9,6 +9,7 @@ import byui.cit260.byuiDo.model.Actor;
 import byui.cit260.byuiDo.model.Game;
 import byui.cit260.byuiDo.model.InventoryItem;
 import byui.cit260.byuiDo.model.InventoryItemType;
+import byui.cit260.byuiDo.model.Map;
 import byuido.ByuiDo;
 import byui.cit260.byuiDo.model.Player;
 import byui.cit260.byuiDo.model.Question;
@@ -54,15 +55,14 @@ public class GameControl {
     //call setter to save items list in the game object
     //// Create all other list (e.g., questions, weapons, spells) and save in the game
     Question[] questionList = createQuestions();
-    
+    Map map = createMap(game, 10, 10);
+    if (map == null){
+        return -2;
+    }
+    game.setMap(map);
+   
 
-…
-map = createMap(game, noOfRows, noOfColumns)
-if map == null
- return -2 // indicates create map failed
-endif
-call setter to save the map in the game object
-RETURN 1 // indicates success
+return 1;
     }
 
     private static InventoryItem[] createItems() {
@@ -104,6 +104,46 @@ RETURN 1 // indicates success
     private static Question[] createQuestions() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    private static Map createMap(Game game, int noOfRows, int noOfColumns) {
+        System.out.println("createMap()");
+        if (InventoryItem.items == null || items.length() < 1) {
+            return null;
+        }
+   // check for invalid inputs
+//if items is null OR its length is < 1
+// return null
+//endif
+//
+//if noOfRows < 0 OR numOfColumns < 0
+// return null
+//endif
+//// create the map object and assign values to it
+//map = a new Map object
+//call setter to assign value to description in map
+//call setter to assign value to noOfRows in the map
+//call setter to assign value to noOfColumns in map
+//call setter to save the map in game object
+//// create a two-dimensional array of locations and assign array to the map
+//locations = createLocations(noOfRows, noOfColumns)
+//if (locations is null) then
+// return null
+//endif
+//call setter to save a locations array in the map object
+//// assign actors and items to locations
+//success = assignActorsToLocations(locations)
+//if (success < 0) then
+// return null
+//endif
+//success = assignIemsToLocations(locations)
+//if (success < 0) then
+// return null
+//endif
+//// Assign all other types objects to locations (e.g., questions, spells)
+
+    
+
+    
 
 
    
