@@ -8,8 +8,10 @@ package byui.cit260.byuiDo.control;
 import byui.cit260.byuiDo.model.Actor;
 import byui.cit260.byuiDo.model.Game;
 import byui.cit260.byuiDo.model.InventoryItem;
+import byui.cit260.byuiDo.model.InventoryItemType;
 import byuido.ByuiDo;
 import byui.cit260.byuiDo.model.Player;
+import byui.cit260.byuiDo.model.Question;
 
 /**
  *
@@ -49,9 +51,11 @@ public class GameControl {
    // Create the lists used in the game
    //items = createItems()
     InventoryItem[] inventoryList = createItems();
+    //call setter to save items list in the game object
+    //// Create all other list (e.g., questions, weapons, spells) and save in the game
+    Question[] questionList = createQuestions();
+    
 
-call setter to save items list in the game object
-// Create all other list (e.g., questions, weapons, spells) and save in the game
 …
 map = createMap(game, noOfRows, noOfColumns)
 if map == null
@@ -63,35 +67,48 @@ RETURN 1 // indicates success
 
     private static InventoryItem[] createItems() {
         System.out.println("createItems() Called");
-        InventoryItem[] inventory = new InventoryItem[3];
-        
+        int length = InventoryItemType.values().length;
+        InventoryItem[] items = new InventoryItem[length];
         
         InventoryItem guitar = new InventoryItem();
-        guitar.setDescription("Guitar");
         guitar.setQuantityInStock(0);
         guitar.setRequiredAmount(0);
         guitar.setCost(100);
+        items[InventoryItemType.guitar.ordinal()] = guitar;
+        
+        InventoryItem frizbee = new InventoryItem();
+        frizbee.setQuantityInStock(0);
+        frizbee.setRequiredAmount(0);
+        frizbee.setCost(100);
+        items[InventoryItemType.frizbee.ordinal()] = frizbee;
         
         InventoryItem calculator = new InventoryItem();
-        calculator.setDescription("Calculator");
         calculator.setQuantityInStock(0);
         calculator.setRequiredAmount(0);
-        calculator.setCost(35);
+        calculator.setCost(100);
+        items[InventoryItemType.guitar.ordinal()] = calculator;
         
         InventoryItem gymClothes = new InventoryItem();
-        gymClothes.setDescription("Gym Clothes");
         gymClothes.setQuantityInStock(0);
         gymClothes.setRequiredAmount(0);
-        gymClothes.setCost(25);
+        gymClothes.setCost(100);
+        items[InventoryItemType.guitar.ordinal()] = gymClothes;
         
-        InventoryItem flowers = new InventoryItem();
-        flowers.setDescription("Flowers");
-        flowers.setQuantityInStock(0);
-        flowers.setRequiredAmount(0);
-        flowers.setCost(5);
-        return inventory;
+//        
+//        frizbee,
+//    calculator,
+//    gymClothes;
+        return items;
+    }
+
+    private static Question[] createQuestions() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
    
 }
+// length = ItemType.value().length() length would be put in 
+//private double quantityInStock;
+//    private double requiredAmount;
+//   private double cost;

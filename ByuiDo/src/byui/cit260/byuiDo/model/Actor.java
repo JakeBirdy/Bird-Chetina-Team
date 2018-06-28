@@ -12,10 +12,10 @@ import java.util.ArrayList;
 public enum Actor implements Serializable {
     
     Player("Player", "You!", new Point(0,0), "Player"),
-    John("John", "He likes sports", new Point(1,1), "NPC"),
-    David("David", "He likes math", new Point(1,2), "NPC"),
-    Anna("Anna", "She likes music", new Point(1,3), "NPC"),
-    Gabby("Gabby", "She likes sports", new Point(1,4), "NPC");
+    John("John", "He likes sports", new Point(1,1), "M"),
+    David("David", "He likes math", new Point(1,2), "M"),
+    Anna("Anna", "She likes music", new Point(1,3), "F"),
+    Gabby("Gabby", "She likes sports", new Point(1,4), "F");
     
     
     private final String name;
