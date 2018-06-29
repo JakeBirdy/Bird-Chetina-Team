@@ -54,8 +54,8 @@ public class GameControl {
     InventoryItem[] inventoryList = createItems();
     //call setter to save items list in the game object
     //// Create all other list (e.g., questions, weapons, spells) and save in the game
-    Question[] questionList = createQuestions();
-    Map map = createMap(game, 10, 10);
+//    Question[] questionList = createQuestions();
+    Map map = MapControl.createMap(game, 10, 10);
     if (map == null){
         return -2;
     }
@@ -65,8 +65,8 @@ public class GameControl {
 return 1;
     }
 
-    private static InventoryItem[] createItems() {
-        System.out.println("createItems() Called");
+    public static InventoryItem[] createItems() {
+       
         int length = InventoryItemType.values().length;
         InventoryItem[] items = new InventoryItem[length];
         
@@ -93,23 +93,15 @@ return 1;
         gymClothes.setRequiredAmount(0);
         gymClothes.setCost(100);
         items[InventoryItemType.guitar.ordinal()] = gymClothes;
-        
-//        
-//        frizbee,
-//    calculator,
-//    gymClothes;
+
         return items;
     }
 
-    private static Question[] createQuestions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    private static Question[] createQuestions() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
-    private static Map createMap(Game game, int noOfRows, int noOfColumns) {
-        System.out.println("createMap()");
-        if (InventoryItem.items == null || items.length() < 1) {
-            return null;
-        }
+   
    // check for invalid inputs
 //if items is null OR its length is < 1
 // return null
