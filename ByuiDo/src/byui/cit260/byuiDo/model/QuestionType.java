@@ -14,6 +14,10 @@ import java.io.Serializable;
 public enum QuestionType implements Serializable{
     date,
     socialize,
+    work,
+    propose,
+    gym,
+    park,
     temple;
             
 }
