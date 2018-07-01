@@ -48,15 +48,26 @@ public class MapControl {
 
     
     
-    public static Location[][] createLocations(int noOfRows, int noOfColumns) {
-        System.out.println("createLocations()");
-        if (noOfRows < 1 || noOfColumns < 1) {
-            return null;
+        private static Location[][] createLocations(int row, int column) {
+        if (row < 1 || column < 1) { //IF rows < 1 OR columns < 1 THEN
+            return null;// RETURN null
+        }//ENDIF
+
+        Location[][] locations = new Location[0][0]; // locations = new two-dimensional Location array
+
+        for (int i = 0; i < locations.length; i++) { 
+            for (int j = 0; j < locations[i].length; j++) { 
+                Location location = new Location();
+                location.setDescription("...map description....");
+                location.setColumn(column); 
+                location.setRow(row);
+                location.setVisited(false);
+                location.setDisplaySymbol('@');
+                locations[row][column] = location;
+            }
+
         }
-        Location[][] locations = new Location[noOfRows][noOfColumns];
-        
-        
-        return locations;
+        return locations; 
  }
 
     private static int assignActorsToLocations(Location[][] locations) {

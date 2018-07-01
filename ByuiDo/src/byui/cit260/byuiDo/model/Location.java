@@ -18,7 +18,7 @@ public class Location implements Serializable {
     private int row;
     private int column;
     private boolean visited;
-    private char displaySimbol;
+    private char displaySymbol;
     private boolean blocked;
 
     public Location() {
@@ -57,12 +57,12 @@ public class Location implements Serializable {
         this.visited = visited;
     }
 
-    public char getDisplaySimbol() {
-        return displaySimbol;
+    public char getDisplaySymbol() {
+        return displaySymbol;
     }
 
-    public void setDisplaySimbol(char displaySimbol) {
-        this.displaySimbol = displaySimbol;
+    public void setDisplaySymbol(char displaySymbol) {
+        this.displaySymbol = displaySymbol;
     }
 
     public boolean getBlocked() {
@@ -80,7 +80,7 @@ public class Location implements Serializable {
         hash = 79 * hash + this.row;
         hash = 79 * hash + this.column;
         hash = 79 * hash + Objects.hashCode(this.visited);
-        hash = 79 * hash + this.displaySimbol;
+        hash = 79 * hash + this.displaySymbol;
         hash = 79 * hash + Objects.hashCode(this.blocked);
         return hash;
     }
@@ -103,7 +103,7 @@ public class Location implements Serializable {
         if (this.column != other.column) {
             return false;
         }
-        if (this.displaySimbol != other.displaySimbol) {
+        if (this.displaySymbol != other.displaySymbol) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
@@ -120,7 +120,7 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "description=" + description + ", row=" + row + ", column=" + column + ", visited=" + visited + ", displaySimbol=" + displaySimbol + ", blocked=" + blocked + '}';
+        return "Location{" + "description=" + description + ", row=" + row + ", column=" + column + ", visited=" + visited + ", displaySymbol=" + displaySymbol + ", blocked=" + blocked + '}';
     }
     
     

@@ -5,10 +5,18 @@
  */
 package byui.cit260.byuiDo.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jake
  */
-public class SceneType {
-    
+public enum SceneType implements Serializable{
+    gym,
+    store,
+    gardens,
+    park,
+    temple,
+    school,
+    work;
 }
