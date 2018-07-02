@@ -20,7 +20,8 @@ public class Map implements Serializable {
     private String description;
     private int rowCount;
     private int columnCount;
-    //composition relationship
+    private double currentRow;
+    private double currentColumn;
     private Location[][] location;
 
     public Map() {
@@ -50,6 +51,22 @@ public class Map implements Serializable {
         this.columnCount = columnCount;
     }
 
+    public double getCurrentRow() {
+        return currentRow;
+    }
+
+    public void setCurrentRow(double currentRow) {
+        this.currentRow = currentRow;
+    }
+
+    public double getCurrentColumn() {
+        return currentColumn;
+    }
+
+    public void setCurrentColumn(double currentColumn) {
+        this.currentColumn = currentColumn;
+    }
+
     public Location[][] getLocation() {
         return location;
     }
@@ -61,10 +78,12 @@ public class Map implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.description);
-        hash = 97 * hash + this.rowCount;
-        hash = 97 * hash + this.columnCount;
-        hash = 97 * hash + Arrays.deepHashCode(this.location);
+        hash = 79 * hash + Objects.hashCode(this.description);
+        hash = 79 * hash + this.rowCount;
+        hash = 79 * hash + this.columnCount;
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.currentRow) ^ (Double.doubleToLongBits(this.currentRow) >>> 32));
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.currentColumn) ^ (Double.doubleToLongBits(this.currentColumn) >>> 32));
+        hash = 79 * hash + Arrays.deepHashCode(this.location);
         return hash;
     }
 
@@ -86,6 +105,12 @@ public class Map implements Serializable {
         if (this.columnCount != other.columnCount) {
             return false;
         }
+        if (Double.doubleToLongBits(this.currentRow) != Double.doubleToLongBits(other.currentRow)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.currentColumn) != Double.doubleToLongBits(other.currentColumn)) {
+            return false;
+        }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
@@ -97,8 +122,9 @@ public class Map implements Serializable {
 
     @Override
     public String toString() {
-        return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", location=" + location + '}';
+        return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", location=" + location + '}';
     }
-    
+
+   
     
 }

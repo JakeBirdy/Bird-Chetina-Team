@@ -122,6 +122,15 @@ public class Location implements Serializable {
     public String toString() {
         return "Location{" + "description=" + description + ", row=" + row + ", column=" + column + ", visited=" + visited + ", displaySymbol=" + displaySymbol + ", blocked=" + blocked + '}';
     }
+
+    public Location(String description, int row, int column, boolean visited, char displaySymbol, boolean blocked) {
+        this.description = description;
+        this.row = row;
+        this.column = column;
+        this.visited = visited;
+        this.displaySymbol = displaySymbol;
+        this.blocked = blocked;
+    }
     
     
 
