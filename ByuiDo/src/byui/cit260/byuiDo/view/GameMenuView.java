@@ -34,19 +34,19 @@ class GameMenuView extends View{
 
     public String[] getInputs() {
 String[] inputs = new String[1];
-        System.out.println("****************************************************");
-        System.out.println("* M - Map                                          *");
-        System.out.println("* W - Where am I                                   *");
-        System.out.println("* C - Initiate Conversation                        *");
-        System.out.println("* A - Ask out on date                              *");
-        System.out.println("* R - View relationship status                     *");
-        System.out.println("* I - View inventory                               *");
-        System.out.println("* P - Shop                                         *");
-        System.out.println("* J - Go to Work                                   *");
-        System.out.println("* T - Go to Temple                                 *");
-        System.out.println("* S - Save Game                                    *");
-        System.out.println("* Q - Go back to main menue                        *");
-        System.out.println("****************************************************");
+        System.out.println("****************************************************\n"
+        + "* M - Map                                          *\n"
+        + "* W - Where am I                                   *\n"
+        + "* C - Initiate Conversation                        *\n"
+        + "* A - Ask out on date                              *\n"
+        + "* R - View relationship status                     *\n"
+        + "* I - View inventory                               *\n"
+        + "* P - Shop                                         *\n"
+        + "* J - Go to Work                                   *\n"
+        + "* T - Go to Temple                                 *\n"
+        + "* S - Save Game                                    *\n"
+        + "* Q - Go back to main menue                        *\n"
+        + "****************************************************");
         String menuOption = this.getInput("\nPlease enter the Menu Option");
         inputs[0] = menuOption;
         return inputs;
