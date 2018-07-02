@@ -28,10 +28,10 @@ public class ActorNameMenuView extends View {
         System.out.println("****************************************************\n"
                 + "* Here the List of your potential choice           *\n"
                 + "* Type the name you choose                         *\n"
-                + "* J - John                                             *\n"
-                + "* D - David                                            *\n"
-                + "* A - Anna                                             *\n"
-                + "* G - Gabby                                            *\n"
+                + "* J - John                                         *\n"
+                + "* D - David                                        *\n"
+                + "* A - Anna                                         *\n"
+                + "* G - Gabby                                        *\n"
                 + "* Q - Exit                                         *\n"
                 + "****************************************************");
 
