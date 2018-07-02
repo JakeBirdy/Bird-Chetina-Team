@@ -9,6 +9,16 @@ package byui.cit260.byuiDo.view;
  *
  * @author tanya
  */
-class ConversationView extends View {
+public class ConversationView extends View {
+
+    @Override
+    public String[] getInputs() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
