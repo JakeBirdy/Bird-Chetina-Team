@@ -6,6 +6,7 @@
 package byui.cit260.byuiDo.view;
 
 
+import byui.cit260.byuiDo.control.GameControl;
 import byui.cit260.byuiDo.model.Player;
 import java.util.Scanner;
 

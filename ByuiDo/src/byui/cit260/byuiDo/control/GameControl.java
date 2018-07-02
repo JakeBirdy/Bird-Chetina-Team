@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.byuiDo.view;
+package byui.cit260.byuiDo.control;
 
 import byuido.ByuiDo;
 import byui.cit260.byuiDo.model.Player;
@@ -12,7 +12,7 @@ import byui.cit260.byuiDo.model.Player;
  *
  * @author Jake
  */
-class GameControl {
+public class GameControl {
 
     //savePlayer(name): Player 
     public static Player savePlayer(String playersName) {

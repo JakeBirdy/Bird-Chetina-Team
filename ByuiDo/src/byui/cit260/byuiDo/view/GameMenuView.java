@@ -32,7 +32,7 @@ class GameMenuView extends View{
         } while (endOfView != true);
     }
 
-    private String[] getInputs() {
+    public String[] getInputs() {
 String[] inputs = new String[1];
         System.out.println("****************************************************");
         System.out.println("* M - Map                                          *");
@@ -65,7 +65,7 @@ String[] inputs = new String[1];
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
 String menuItem = inputs[0];
         menuItem = menuItem.toUpperCase();
         switch (menuItem) {
