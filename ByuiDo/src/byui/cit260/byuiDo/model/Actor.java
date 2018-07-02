@@ -10,28 +10,39 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public enum Actor implements Serializable {
-    
-    Player("Player", "You!", new Point(0,0), "Player"),
-    John("John", "He likes sports", new Point(1,1), "M"),
-    David("David", "He likes math", new Point(1,2), "M"),
-    Jake("Jake", "He is awesome", new Point(1,4), "M"),
-    Tatiana("Tatiana", "She is awesome", new Point(1,3), "F"),
-    Anna("Anna", "She likes music", new Point(1,5), "F"),
-    Gabby("Gabby", "She likes sports", new Point(1,4), "F");
+
+    John("John", "He likes sports", new Point(1,1), "NPC", "1 + 1", "2" ),
+    David("David", "He likes math", new Point(1,2), "NPC", "1 + 1", "2"),
+    Anna("Anna", "She likes music", new Point(1,3), "NPC", "1 + 1", "2"),
+    Gabby("Gabby", "She likes sports", new Point(1,4), "NPC", "1 + 1", "2");
     
     
     private final String name;
     private final String description;
     private final Point coordinates;
     private final String type;
+    private final String problem;
+    private final String solution;
     private final ArrayList <Relationship> relationships = new ArrayList<>();
 
-    private Actor(String name, String description, Point coordinates, String type) {
+    private Actor(String name, String description, Point coordinates, String type, String problem, String solution) {
         this.name = name;
         this.description = description;
         this.coordinates = coordinates;
         this.type = type;
+        this.problem = problem;
+        this.solution = solution;
     }
+
+    public String getProblem() {
+        return problem;
+    }
+
+    public String getSolution() {
+        return solution;
+    }
+
+ 
 
     public String getName() {
         return name;

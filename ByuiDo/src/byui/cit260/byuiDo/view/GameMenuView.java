@@ -31,6 +31,7 @@ String[] inputs = new String[1];
         System.out.println("* I - View inventory                               *");
         System.out.println("* P - Shop                                         *");
         System.out.println("* J - Go to Work                                   *");
+        System.out.println("* T - Go to Temple                                 *");
         System.out.println("* S - Save Game                                    *");
         System.out.println("* Q - Go back to main menue                        *");
         System.out.println("****************************************************");
@@ -65,6 +66,9 @@ String menuItem = inputs[0];
                 this.goToShop();
             case "J":
                 this.goToWork();
+                break;
+            case "T":
+                this.goToTemple();
                 break;
             case "S":
                 this.saveGame();
@@ -117,6 +121,11 @@ String menuItem = inputs[0];
     private void goToWork() {
         JobMenuView jobMenu = new JobMenuView();
         jobMenu.display();
+    }
+
+    private void goToTemple() {
+        TempleMenuView templeMenu = new TempleMenuView();
+        templeMenu.display();
     }
 
 }
