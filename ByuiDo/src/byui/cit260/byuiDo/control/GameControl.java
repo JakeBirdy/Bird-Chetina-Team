@@ -50,7 +50,7 @@ public class GameControl {
         //call setter to save the game in the main class of program
         ByuiDo.setCurrentGame(game);
         // call setter to assign an actor to the player
-        player.setActor(Actor.Player);
+        player.setActor(Actor.Anna);
         // Create the lists used in the game
         //items = createItems()
         InventoryItem[] inventoryList = createItems();
@@ -137,6 +137,10 @@ public class GameControl {
         questions[QuestionType.park.ordinal()] = park;       
         
         return questions;
+    }
+
+    public static int propose(Actor person) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -20,6 +20,18 @@ class GameMenuView extends View{
     public GameMenuView() {
     }
 
+    void displayGameMenuView() {
+        boolean endOfView = false;
+        do {
+            String[] inputs = this.getInputs();
+            if (inputs[0].toUpperCase().equals("Q") || inputs.length == 0) {
+                return;
+            }
+            endOfView = doAction(inputs);
+
+        } while (endOfView != true);
+    }
+
     public String[] getInputs() {
 String[] inputs = new String[1];
         System.out.println("****************************************************");
