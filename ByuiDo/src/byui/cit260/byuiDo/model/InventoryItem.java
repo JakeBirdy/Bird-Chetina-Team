@@ -16,7 +16,9 @@ public class InventoryItem implements Serializable{
     
     private String itemType;
     private double quantityInStock;
-    private String name;
+    private double requiredAmount;
+   private double cost;
+    
     private String description;
     private Game game;
 
@@ -39,12 +41,20 @@ public class InventoryItem implements Serializable{
         this.quantityInStock = quantityInStock;
     }
 
-    public String getName() {
-        return name;
+    public double getRequiredAmount() {
+        return requiredAmount;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRequiredAmount(double requiredAmount) {
+        this.requiredAmount = requiredAmount;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
     public String getDescription() {
@@ -66,11 +76,12 @@ public class InventoryItem implements Serializable{
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 47 * hash + Objects.hashCode(this.itemType);
-        hash = 47 * hash + (int) (Double.doubleToLongBits(this.quantityInStock) ^ (Double.doubleToLongBits(this.quantityInStock) >>> 32));
-        hash = 47 * hash + Objects.hashCode(this.name);
-        hash = 47 * hash + Objects.hashCode(this.description);
-        hash = 47 * hash + Objects.hashCode(this.game);
+        hash = 53 * hash + Objects.hashCode(this.itemType);
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.quantityInStock) ^ (Double.doubleToLongBits(this.quantityInStock) >>> 32));
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.requiredAmount) ^ (Double.doubleToLongBits(this.requiredAmount) >>> 32));
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.cost) ^ (Double.doubleToLongBits(this.cost) >>> 32));
+        hash = 53 * hash + Objects.hashCode(this.description);
+        hash = 53 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
@@ -89,10 +100,13 @@ public class InventoryItem implements Serializable{
         if (Double.doubleToLongBits(this.quantityInStock) != Double.doubleToLongBits(other.quantityInStock)) {
             return false;
         }
-        if (!Objects.equals(this.itemType, other.itemType)) {
+        if (Double.doubleToLongBits(this.requiredAmount) != Double.doubleToLongBits(other.requiredAmount)) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
+        if (Double.doubleToLongBits(this.cost) != Double.doubleToLongBits(other.cost)) {
+            return false;
+        }
+        if (!Objects.equals(this.itemType, other.itemType)) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
@@ -106,12 +120,10 @@ public class InventoryItem implements Serializable{
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "itemType=" + itemType + ", quantityInStock=" + quantityInStock + ", name=" + name + ", description=" + description + ", game=" + game + '}';
+        return "InventoryItem{" + "itemType=" + itemType + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + ", cost=" + cost + ", description=" + description + ", game=" + game + '}';
     }
+
     
-   
-    
-    
-    
+
     
 }

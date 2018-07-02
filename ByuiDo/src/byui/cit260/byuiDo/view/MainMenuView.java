@@ -65,7 +65,7 @@ public class MainMenuView extends View {
         //gameMenuView = create a new GameMenuView object
         GameMenuView gameMenu = new GameMenuView();
         //gameMenuView.displayGameMenuView();
-        gameMenu.displayGameMenuView();
+        gameMenu.display();
 
     }
 

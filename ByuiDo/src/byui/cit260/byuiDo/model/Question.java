@@ -17,7 +17,7 @@ public class Question implements Serializable{
     
     private String question;
     private String answer;
-    private long score;
+    private boolean required;
     private long amount;
     private ArrayList<ChallengeScene> scene = new ArrayList<>();
 
@@ -40,12 +40,12 @@ public class Question implements Serializable{
         this.answer = answer;
     }
 
-    public long getScore() {
-        return score;
+    public boolean isRequired() {
+        return required;
     }
 
-    public void setScore(long score) {
-        this.score = score;
+    public void setRequired(boolean required) {
+        this.required = required;
     }
 
     public long getAmount() {
@@ -66,12 +66,12 @@ public class Question implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.question);
-        hash = 89 * hash + Objects.hashCode(this.answer);
-        hash = 89 * hash + (int) (this.score ^ (this.score >>> 32));
-        hash = 89 * hash + (int) (this.amount ^ (this.amount >>> 32));
-        hash = 89 * hash + Objects.hashCode(this.scene);
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.question);
+        hash = 59 * hash + Objects.hashCode(this.answer);
+        hash = 59 * hash + (this.required ? 1 : 0);
+        hash = 59 * hash + (int) (this.amount ^ (this.amount >>> 32));
+        hash = 59 * hash + Objects.hashCode(this.scene);
         return hash;
     }
 
@@ -87,7 +87,7 @@ public class Question implements Serializable{
             return false;
         }
         final Question other = (Question) obj;
-        if (this.score != other.score) {
+        if (this.required != other.required) {
             return false;
         }
         if (this.amount != other.amount) {
@@ -107,7 +107,7 @@ public class Question implements Serializable{
 
     @Override
     public String toString() {
-        return "Question{" + "question=" + question + ", answer=" + answer + ", score=" + score + ", amount=" + amount + ", scene=" + scene + '}';
+        return "Question{" + "question=" + question + ", answer=" + answer + ", required=" + required + ", amount=" + amount + ", scene=" + scene + '}';
     }
 
     
