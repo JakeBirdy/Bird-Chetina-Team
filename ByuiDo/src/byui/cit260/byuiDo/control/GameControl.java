@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.byuiDo.view;
+package byui.cit260.byuiDo.control;
 
+import byui.cit260.byuiDo.model.Actor;
 import byuido.ByuiDo;
 import byui.cit260.byuiDo.model.Player;
 
@@ -12,7 +13,7 @@ import byui.cit260.byuiDo.model.Player;
  *
  * @author Jake
  */
-class GameControl {
+public class GameControl {
 
     //savePlayer(name): Player 
     public static Player savePlayer(String playersName) {
@@ -29,5 +30,9 @@ class GameControl {
     public static void createNewGame(Player player){
         System.out.println("*** GameControl ***");
     }
-
+    
+    public static int propose(Actor actor) {
+        System.out.println("*** Propose ***");
+        return 1;
+    }
 }
