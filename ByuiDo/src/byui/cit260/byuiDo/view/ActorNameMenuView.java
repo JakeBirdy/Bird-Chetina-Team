@@ -79,7 +79,22 @@ public class ActorNameMenuView extends View {
 
     private int propose(Actor person) {
         int engaged = GameControl.propose(person);
-
+        
+        // if engaged < 0 then
+            // print error message - no person was selected
+        // else if engaged == 0
+            // print Sorry, I don't want to marry you at this time
+        // else 
+            // Yes, You are my only true love for all eternity
+        // endif 
+        
+        if (engaged < 0)
+            System.out.println("No person was selected");
+        else if (engaged == 0)
+            System.out.println("Sorry, I don't want to marry you at this time");
+        else
+            System.out.println("Yes, You are my only true love for all eternity");
+            
         return engaged;
 
     }

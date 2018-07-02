@@ -57,6 +57,8 @@ public class TempleMenuView extends View {
     private void getPropose() {
         ActorNameMenuView actorNameMenu = new ActorNameMenuView();
         actorNameMenu.display();
+        
+        
     }  
 }
     

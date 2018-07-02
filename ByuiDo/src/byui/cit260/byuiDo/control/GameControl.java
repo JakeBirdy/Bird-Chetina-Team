@@ -14,6 +14,8 @@ import byuido.ByuiDo;
 import byui.cit260.byuiDo.model.Player;
 import byui.cit260.byuiDo.model.Question;
 import byui.cit260.byuiDo.model.QuestionType;
+import byui.cit260.byuiDo.model.Relationship;
+import java.util.ArrayList;
 
 /**
  *
@@ -140,7 +142,38 @@ public class GameControl {
     }
 
     public static int propose(Actor person) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       System.out.println("*** propose to " + person.name());
+       
+       if (person == null) {
+           return -1;
+       }
+       
+       // Get Actor who is the player
+       Actor playersActor = ByuiDo.getPlayer().getActor();
+      
+       // get the player Actor's relationships
+       ArrayList<Relationship> playersRelationships = playersActor.getRelationships();
+       
+       // search for relationship between the players Actor and person
+       Relationship relationship = null;
+       for(Relationship nextRelationship : playersRelationships) {
+           if (nextRelationship.getActorTwo() == person) {
+               relationship = nextRelationship;
+               break;         
+           }
+       }
+       
+       if (relationship == null) { // relationship not found
+           return 0; // not engaged
+       }
+       
+       // check to see if the relationship is strong enough
+       if (relationship.getRelationshipScore() < 75) { 
+           return 0; // not engaged
+       }
+
+       
+       return 1; // that are engagged
     }
 
 }
