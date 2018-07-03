@@ -103,7 +103,7 @@ public class GameControl {
     private static Question[] createQuestions() {
         Question[] questions = new Question[7];
 
- Question date = new Question();
+        Question date = new Question();
         date.setQuestion("Where should we go?");
         date.setAnswer("");
         date.setRequired(true);

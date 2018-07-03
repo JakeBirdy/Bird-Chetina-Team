@@ -98,7 +98,7 @@ public class MapControl {
         Actor[] actors = Actor.values();
 
         for (Actor actor : actors) {
-            if (actor.getName().equals("playerm") || actor.getName().equals("playerf")) {
+            if (actor.getName().equals("playerM") || actor.getName().equals("playerF")) {
                 continue;
             }
         }

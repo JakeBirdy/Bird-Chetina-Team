@@ -117,7 +117,8 @@ String menuItem = inputs[0];
     }
 
     private void viewInventory() {
-
+    ViewInventoryView viewInventory = new ViewInventoryView();
+     viewInventory.display();
     }
 
     private void saveGame() {
