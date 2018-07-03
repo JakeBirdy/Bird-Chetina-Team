@@ -68,7 +68,7 @@ public class GameControl {
         return 1;
     }
 
-    private static InventoryItem[] createItems() {
+    public static InventoryItem[] createItems() {
         System.out.println("createItems() Called");
         int length = InventoryItemType.values().length;
         InventoryItem[] items = new InventoryItem[length];

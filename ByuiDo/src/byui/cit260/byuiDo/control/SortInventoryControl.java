@@ -5,13 +5,15 @@
  */
 package byui.cit260.byuiDo.control;
 
+import byui.cit260.byuiDo.model.InventoryItem;
+
 /**
  *
  * @author Jake
  */
 public class SortInventoryControl {
 
-    public static void SortInventoryControl(int InventoryItem[]) {
+    public static void SortInventoryControl(InventoryItem[] items) {
     
     
     }
