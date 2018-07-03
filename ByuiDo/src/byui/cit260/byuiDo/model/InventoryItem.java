@@ -17,7 +17,7 @@ public class InventoryItem implements Serializable{
     private String itemType;
     private double quantityInStock;
     private double requiredAmount;
-   private double cost;
+    private double cost;
     
     private String description;
     private Game game;
