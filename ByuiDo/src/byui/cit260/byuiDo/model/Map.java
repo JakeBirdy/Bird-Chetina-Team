@@ -77,13 +77,13 @@ public class Map implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + Objects.hashCode(this.description);
-        hash = 79 * hash + this.rowCount;
-        hash = 79 * hash + this.columnCount;
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.currentRow) ^ (Double.doubleToLongBits(this.currentRow) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.currentColumn) ^ (Double.doubleToLongBits(this.currentColumn) >>> 32));
-        hash = 79 * hash + Arrays.deepHashCode(this.location);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.description);
+        hash = 97 * hash + this.rowCount;
+        hash = 97 * hash + this.columnCount;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.currentRow) ^ (Double.doubleToLongBits(this.currentRow) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.currentColumn) ^ (Double.doubleToLongBits(this.currentColumn) >>> 32));
+        hash = 97 * hash + Arrays.deepHashCode(this.location);
         return hash;
     }
 
@@ -125,6 +125,4 @@ public class Map implements Serializable {
         return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", location=" + location + '}';
     }
 
-   
-    
 }

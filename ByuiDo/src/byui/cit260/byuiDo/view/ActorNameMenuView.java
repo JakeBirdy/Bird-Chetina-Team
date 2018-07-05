@@ -69,7 +69,7 @@ public class ActorNameMenuView extends View {
             System.out.println("Invalid person");
             return false;
         }
-        if (engaged >0 ){
+        if (engaged > 0 ){
             System.out.println("Congratulations! You're engaged!");
             return true;
         }
