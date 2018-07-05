@@ -56,6 +56,9 @@ public class Location implements Serializable {
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
+    public boolean isVisited() {
+        return visited;
+    }
 
     public char getDisplaySymbol() {
         return displaySymbol;

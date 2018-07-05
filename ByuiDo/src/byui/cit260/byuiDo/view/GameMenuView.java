@@ -5,10 +5,13 @@
  */
 package byui.cit260.byuiDo.view;
 
+import byui.cit260.byuiDo.model.Game;
+import byui.cit260.byuiDo.model.Location;
 import byui.cit260.byuiDo.view.ConversationMenuView;
 import byui.cit260.byuiDo.view.DateMenuView;
 import byui.cit260.byuiDo.view.JobMenuView;
 import byui.cit260.byuiDo.view.StoreMenuView;
+import byuido.ByuiDo;
 import java.util.Scanner;
 
 /**
@@ -20,17 +23,7 @@ class GameMenuView extends View{
     public GameMenuView() {
     }
 
-    void displayGameMenuView() {
-        boolean endOfView = false;
-        do {
-            String[] inputs = this.getInputs();
-            if (inputs[0].toUpperCase().equals("Q") || inputs.length == 0) {
-                return;
-            }
-            endOfView = doAction(inputs);
-
-        } while (endOfView != true);
-    }
+    
 
     public String[] getInputs() {
 String[] inputs = new String[1];
@@ -96,6 +89,29 @@ String menuItem = inputs[0];
 
     private void getMap() {
   
+        Game game = ByuiDo.getCurrentGame();
+        Location[][] locations = game.getMap().getLocation();
+        System.out.println("Map of Rexburg");
+        System.out.println("  1  2  3  4  5");
+
+        for (int row = 0; row < locations.length; row++) {
+            System.out.print("-----------------\n");
+            System.out.print(row+1 + "|");
+            for (int column = 0; column < locations.length; column++) {
+                Location location = locations[row][column];
+                if (location.isVisited()) {
+                    System.out.print(location.getDisplaySymbol());
+                }
+                else{
+                    System.out.print("--");
+                }
+                System.out.print("|");
+            }
+            System.out.print("\n");
+            
+        }
+        System.out.print("-----------------\n");
+    
     }
 
     private void getWhereAmI() {
