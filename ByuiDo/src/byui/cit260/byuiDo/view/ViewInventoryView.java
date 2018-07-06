@@ -20,19 +20,18 @@ class ViewInventoryView extends View{
 String[] inputs = new String[1];
         System.out.println("****************************************************\n"
         + "* What do you want to do?                          *\n"
-        + "* P - Print list of items                          *\n"
+        + "* P - Sort items                                   *\n"
         + "* Q - Go back                                      *\n");
         String menuOption = this.getInput("\nPlease enter the Menu Option");
         inputs[0] = menuOption;
         return inputs;
-    }n
-            
+    }
 
     public boolean doAction(String[] inputs) {
 String menuItem = inputs[0];
         menuItem = menuItem.toUpperCase();
         switch (menuItem) {
-           case "P":
+           case "S":
                 this.sortItems();
                 break;
                 case "Q":
@@ -44,8 +43,8 @@ String menuItem = inputs[0];
         return false;
     }
 
-    private void sortItems(InventoryItem[] items) {
-        int n = items.length;
+    private void sortItems() {
+        
     }
     
 }

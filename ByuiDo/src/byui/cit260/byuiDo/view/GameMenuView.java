@@ -91,7 +91,7 @@ String menuItem = inputs[0];
   
         Game game = ByuiDo.getCurrentGame();
         Location[][] locations = game.getMap().getLocation();
-        System.out.println("Map of Rexburg");
+        System.out.println("    Map of Rexburg");
         System.out.println("   1   2   3   4   5");
 
         for (int row = 0; row < locations.length; row++) {

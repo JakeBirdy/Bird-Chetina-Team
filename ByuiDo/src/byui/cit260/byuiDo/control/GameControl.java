@@ -55,7 +55,7 @@ public class GameControl {
         player.setActor(Actor.Anna);
         // Create the lists used in the game
         //items = createItems()
-        InventoryItem[] inventoryList = createItems();
+        ArrayList<InventoryItem> items = createItems();
         //call setter to save items list in the game object
         //// Create all other list (e.g., questions, weapons, spells) and save in the game
 //    Question[] questionList = createQuestions();
@@ -67,35 +67,49 @@ public class GameControl {
 
         return 1;
     }
-
-    public static InventoryItem[] createItems() {
-        System.out.println("createItems() Called");
-        int length = InventoryItemType.values().length;
-        InventoryItem[] items = new InventoryItem[length];
-
+private String itemType;
+    public static ArrayList<InventoryItem> createItems() {
+      
         InventoryItem guitar = new InventoryItem();
+        guitar.setItemType("guitar");
         guitar.setQuantityInStock(0);
         guitar.setRequiredAmount(0);
-        guitar.setCost(100);
-        items[InventoryItemType.guitar.ordinal()] = guitar;
-
+        guitar.setDescription("A fine crafted Guitar");
+        guitar.setCost(300);
+      
         InventoryItem frizbee = new InventoryItem();
+        frizbee.setItemType("frizbee");
         frizbee.setQuantityInStock(0);
         frizbee.setRequiredAmount(0);
-        frizbee.setCost(100);
-        items[InventoryItemType.frizbee.ordinal()] = frizbee;
-
+        frizbee.setDescription("A fine crafted frizbee");
+        frizbee.setCost(10);
+      
         InventoryItem calculator = new InventoryItem();
+        calculator.setItemType("calculator");
         calculator.setQuantityInStock(0);
         calculator.setRequiredAmount(0);
-        calculator.setCost(100);
-        items[InventoryItemType.guitar.ordinal()] = calculator;
-
+        calculator.setDescription("A fine crafted calculator");
+        calculator.setCost(50);
+      
         InventoryItem gymClothes = new InventoryItem();
+        gymClothes.setItemType("gymClothes");
         gymClothes.setQuantityInStock(0);
         gymClothes.setRequiredAmount(0);
-        gymClothes.setCost(100);
-        items[InventoryItemType.guitar.ordinal()] = gymClothes;
+        gymClothes.setDescription("Finely crafted clothes");
+        gymClothes.setCost(60);
+
+        
+
+ 
+    
+
+
+        ArrayList<InventoryItem> items = new ArrayList<>();
+        items.add(InventoryItemType.guitar.ordinal(), guitar);
+        items.add(InventoryItemType.frizbee.ordinal(), frizbee);
+        items.add(InventoryItemType.calculator.ordinal(), calculator);
+        items.add(InventoryItemType.gymClothes.ordinal(), gymClothes);
+     
 
         return items;
     }
@@ -115,6 +129,7 @@ public class GameControl {
         work.setAnswer("");
         work.setRequired(true);
         work.setAmount(10);
+        
         questions[QuestionType.work.ordinal()] = work;
         
         Question gym = new Question();
