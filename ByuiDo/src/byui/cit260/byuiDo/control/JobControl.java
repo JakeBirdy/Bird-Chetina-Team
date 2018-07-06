@@ -16,10 +16,11 @@ public class JobControl {
     public static double calculateWage(double hours, double pay)
     throws JobControlException{
         if (hours <= 0 || hours >= 8) {
-            throw new JobControlException(" ");
+            throw new JobControlException("Needs the correct hours");
         }
         if (pay <= 0) {
-            return -2;
+            throw new JobControlException("Pay can't be Zero");
+
         }
         
         int goodDeed = 1;
