@@ -19,9 +19,11 @@ class ViewInventoryView extends View{
    public String[] getInputs() {
 String[] inputs = new String[1];
         System.out.println("****************************************************\n"
-        + "* What do you want to do?                          *\n"
-        + "* P - Sort items                                   *\n"
-        + "* Q - Go back                                      *\n");
+        + "* What do you want to do?                                           *\n"
+        + "* P - Sort items                                                    *\n"
+        + "* T - Get total price of all items                                  *\n"        
+        + "* Q - Go back                                                       *\n"
+        + "*********************************************************************");
         String menuOption = this.getInput("\nPlease enter the Menu Option");
         inputs[0] = menuOption;
         return inputs;
@@ -34,7 +36,10 @@ String menuItem = inputs[0];
            case "S":
                 this.sortItems();
                 break;
-                case "Q":
+           case "T":
+                this.getTotalCost();
+                break;
+           case "Q":
                 return true;    
 
             default:
@@ -46,5 +51,11 @@ String menuItem = inputs[0];
     private void sortItems() {
         
     }
-    
+   
+     private void getTotalCost() {
+        ItemsPriceMenuView itemsPriceMenu =  new ItemsPriceMenuView();
+        itemsPriceMenu.display();
+        
+      
+    }
 }
