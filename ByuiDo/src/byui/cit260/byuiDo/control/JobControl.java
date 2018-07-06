@@ -5,15 +5,18 @@
  */
 package byui.cit260.byuiDo.control;
 
+import byui.cit260.byuiDo.exceptions.JobControlException;
+
 /**
  *
  * @author Jake
  */
 public class JobControl {
     
-    public static double calculateWage(double hours, double pay){
+    public static double calculateWage(double hours, double pay)
+    throws JobControlException{
         if (hours <= 0 || hours >= 8) {
-            return -1;
+            throw new JobControlException(" ");
         }
         if (pay <= 0) {
             return -2;
