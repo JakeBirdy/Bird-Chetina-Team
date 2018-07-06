@@ -64,7 +64,7 @@ public class GameControl {
             return -2;
         }
         game.setMap(map);
-
+        ByuiDo.setCurrentGame(game);
         return 1;
     }
 private String itemType;

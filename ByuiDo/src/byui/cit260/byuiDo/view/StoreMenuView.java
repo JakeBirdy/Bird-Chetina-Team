@@ -24,15 +24,15 @@ public class StoreMenuView extends View {
 
         //Display a description of the view 
         System.out.println("****************************************************\n"
-                + "* Welcome to Walmart shop                          *\n"
-                + "* Here you can buy all kind of items for  all your *\n"
-                + "* dating needs.                                    *\n"
-                + "* My name is Rex:) How can I help you?             *\n"
-                + "* Choose the option below:                         *\n"
-                + "* W - Browse Wares                                 *\n"
-                + "* B - Buy Items                                    *\n"
-                + "* Q - Exit                                         *\n"
-                + "****************************************************");
+                + "* Welcome to Walmart shop                                   *\n"
+                + "* Here you can buy all kind of items for  all your          *\n"
+                + "* dating needs.                                             *\n"
+                + "* My name is Rex:) How can I help you?                      *\n"
+                + "* Choose the option below:                                  *\n"
+                + "* W - Browse Wares                                          *\n"
+                + "* B - Buy Items                                             *\n"
+                + "* Q - Exit                                                  *\n"
+                + "*************************************************************");
 
         String storeMenu = this.getInput("\nPlease enter your option");
         inputs[0] = storeMenu;

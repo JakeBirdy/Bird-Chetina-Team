@@ -5,7 +5,10 @@
  */
 package byui.cit260.byuiDo.view;
 
+import byui.cit260.byuiDo.control.InventoryControl;
 import byui.cit260.byuiDo.model.InventoryItem;
+import byuido.ByuiDo;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,6 +26,8 @@ String[] inputs = new String[1];
         + "* P - Sort items                                                    *\n"
         + "* T - Get total price of all items                                  *\n"        
         + "* Q - Go back                                                       *\n"
+        + "* P - Print list                                                    *\n"
+        + "* Q - Go back                                                       *\n"
         + "*********************************************************************");
         String menuOption = this.getInput("\nPlease enter the Menu Option");
         inputs[0] = menuOption;
@@ -33,8 +38,8 @@ String[] inputs = new String[1];
 String menuItem = inputs[0];
         menuItem = menuItem.toUpperCase();
         switch (menuItem) {
-           case "S":
-                this.sortItems();
+           case "P":
+                this.listItems();
                 break;
            case "T":
                 this.getTotalCost();
@@ -48,8 +53,8 @@ String menuItem = inputs[0];
         return false;
     }
 
-    private void sortItems() {
-        
+    private void listItems() {
+        ArrayList<InventoryItem> inventory = ByuiDo.getCurrentGame().getPlayer().getInventoryItem().getItemType;
     }
    
      private void getTotalCost() {
