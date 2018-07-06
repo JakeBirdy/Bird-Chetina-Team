@@ -92,25 +92,25 @@ String menuItem = inputs[0];
         Game game = ByuiDo.getCurrentGame();
         Location[][] locations = game.getMap().getLocation();
         System.out.println("Map of Rexburg");
-        System.out.println("  1  2  3  4  5");
+        System.out.println("   1   2   3   4   5");
 
         for (int row = 0; row < locations.length; row++) {
-            System.out.print("-----------------\n");
+            System.out.print("----------------------\n");
             System.out.print(row+1 + "|");
             for (int column = 0; column < locations.length; column++) {
                 Location location = locations[row][column];
                 if (location.isVisited()) {
-                    System.out.print(location.getDisplaySymbol());
+                    System.out.print(" " + location.getDisplaySymbol() + " ");
                 }
                 else{
-                    System.out.print("--");
+                    System.out.print(" ? ");
                 }
                 System.out.print("|");
             }
             System.out.print("\n");
             
         }
-        System.out.print("-----------------\n");
+        System.out.print("----------------------\n");
     
     }
 

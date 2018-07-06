@@ -63,7 +63,7 @@ public class MapControl {
         locations[0][1] = new Location("street with students, no one looks interested in you", 0, 1, false, '-', false);
         locations[0][2] = new Location("an empty building where burgers and music used to be", 0, 2, false, '-', false);
         locations[0][3] = new Location("apartments and other buildings", 0, 3, false, '-', false);
-        locations[0][4] = new QuestionLocation(true, "park", "A park where people might be interested in playing games!", 0, 4, false, 'P', false);
+        locations[0][4] = new QuestionLocation(true, "park", "A park where people might be interested in playing games!", 0, 4, true, 'P', false);
         locations[1][0] = new Location("Little Caesars, closed do to the pizza riots", 1, 0, false, '-', false);
         locations[1][1] = new Location("Brolim's, but I prefer Walmart.", 1, 1, false, '-', false);
         locations[1][2] = new Location("empty street", 1, 2, false, '-', false);

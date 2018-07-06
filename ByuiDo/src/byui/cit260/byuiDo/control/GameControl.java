@@ -111,7 +111,7 @@ public class GameControl {
         questions[QuestionType.date.ordinal()] = date;
 
         Question work = new Question();
-        work.setQuestion("How much do you do you earned?");
+        work.setQuestion("How much do you earned?");
         work.setAnswer("");
         work.setRequired(true);
         work.setAmount(10);
