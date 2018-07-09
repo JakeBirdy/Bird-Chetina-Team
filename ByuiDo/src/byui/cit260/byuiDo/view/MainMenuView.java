@@ -22,22 +22,21 @@ public class MainMenuView extends View {
     public MainMenuView() {
     }
 
-    public String[] getInputs() {
-
-        String[] inputs = new String[1];
-        System.out.println("****************************************************");
-        System.out.println("* N - Start New Game                               *");
-        System.out.println("* R - Restart Existing Game                        *");
-        System.out.println("* H - Get help on how to play the game             *");
-        System.out.println("* Q - Quit Game                                    *");
-        System.out.println("****************************************************");
-
-        String menuOption = this.getInput("\nPlease enter the Menu Option");
-        inputs[0] = menuOption;
+    @Override
+     public String[] getInputs() {
+         String[] inputs = new String[1];
+         String menu = this.getInput
+         ("****************************************************\n" 
+        + "* N - Start New Game                               *\n"
+        + "* R - Restart Existing Game                        *\n"
+        + "* H - Get help on how to play the game             *\n"
+        + "* Q - Quit Game                                    *\n"
+        + "****************************************************");
+         inputs[0] = menu;
         return inputs;
     }
 
-    //doAction(inputs): boolean 
+    @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0];
         menuItem = menuItem.toUpperCase();
