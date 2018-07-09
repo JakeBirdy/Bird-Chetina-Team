@@ -58,9 +58,6 @@ String menuItem = inputs[0];
     }
    
      private void getTotalCost() {
-        ItemsPriceMenuView itemsPriceMenu =  new ItemsPriceMenuView();
-        itemsPriceMenu.display();
-        
-      
+         
     }
 }
