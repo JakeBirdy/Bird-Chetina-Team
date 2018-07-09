@@ -24,7 +24,8 @@ public enum Actor implements Serializable {
     private final String problem;
     private final String solution;
     private final ArrayList <Relationship> relationships = new ArrayList<>();
-
+    private ArrayList<InventoryItem> inventory = new ArrayList<>();
+    
     private Actor(String name, String description, Point coordinates, String type, String problem, String solution) {
         this.name = name;
         this.description = description;
@@ -64,6 +65,16 @@ public enum Actor implements Serializable {
         return relationships;
     }
 
+    public ArrayList<InventoryItem> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(ArrayList<InventoryItem> inventory) {
+        this.inventory = inventory;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Actor{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + ", type=" + type + ", relationships=" + relationships + '}';

@@ -54,7 +54,10 @@ String menuItem = inputs[0];
     }
 
     private void listItems() {
-        ArrayList<InventoryItem> inventory = ByuiDo.getCurrentGame().getPlayer().getInventoryItem().getItemType;
+        ArrayList<InventoryItem> inventory = ByuiDo.getCurrentGame().getPlayer().getActor().getInventory();
+        for (InventoryItem inventoryItem : inventory) {
+            System.out.println(inventoryItem.getItemType());
+        }
     }
    
      private void getTotalCost() {
