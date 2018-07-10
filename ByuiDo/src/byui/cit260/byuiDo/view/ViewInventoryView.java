@@ -61,6 +61,7 @@ String menuItem = inputs[0];
     }
    
      private void getTotalCost() {
-      InventoryControl.calculateTotalCost(ByuiDo.getCurrentGame().getItems());  
+     double totalCost = InventoryControl.calculateTotalCost(ByuiDo.getCurrentGame().getItems()); 
+         System.out.println(totalCost);
     }
 }
