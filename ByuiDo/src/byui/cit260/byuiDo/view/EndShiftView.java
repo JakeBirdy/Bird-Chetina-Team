@@ -6,8 +6,11 @@
 package byui.cit260.byuiDo.view;
 
 import byui.cit260.byuiDo.control.JobControl;
+import byui.cit260.byuiDo.exceptions.JobControlException;
 import byui.cit260.byuiDo.view.View;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,9 +36,22 @@ class EndShiftView extends View{
     }
 
     public boolean doAction(String[] inputs) {
+        try{
         double hours = Double.parseDouble(inputs[0]);
+        } catch (NumberFormatException nfe) {
+            System.err.println("Enter a number");
+        }
+         try{   
         double pay = Double.parseDouble(inputs[1]);
-        double wage = JobControl.calculateWage(hours, pay);
+         } catch (NumberFormatException nfe) {
+             System.out.println("Enter a number");
+         }
+        double wage = 0;
+        try {
+            wage = JobControl.calculateWage(hours, pay);
+        } catch (JobControlException ex) {
+            Logger.getLogger(EndShiftView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         if (wage == -1) {
             System.out.println("Your hours are wrong!!!");
