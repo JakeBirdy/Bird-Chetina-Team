@@ -6,7 +6,6 @@
 package byui.cit260.byuiDo.view;
 
 import byui.cit260.byuiDo.control.InventoryControl;
-import byui.cit260.byuiDo.control.TotalCostInventoryControl;
 import byui.cit260.byuiDo.model.InventoryItem;
 import byuido.ByuiDo;
 import java.util.ArrayList;
@@ -62,7 +61,6 @@ String menuItem = inputs[0];
     }
    
      private void getTotalCost() {
-       
-         
+      InventoryControl.calculateTotalCost(ByuiDo.getCurrentGame().getItems());  
     }
 }

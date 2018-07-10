@@ -14,6 +14,18 @@ import java.util.ArrayList;
  */
 public class InventoryControl {
 
+    public static double calculateTotalCost(InventoryItem[] items) {
+        if (items == null){
+            return -1;
+        }
+    double totalCost = 0;
+    
+    for (InventoryItem item : items){
+        totalCost += item.getCost();
+      } 
+    
+    return totalCost;
+}
      public static ArrayList<InventoryItem> sortInventory(ArrayList<InventoryItem> inventoryItems) {
         ArrayList<InventoryItem> items = (ArrayList<InventoryItem>) inventoryItems.clone();
         int n = items.size();

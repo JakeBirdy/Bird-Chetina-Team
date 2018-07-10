@@ -13,17 +13,9 @@ import byui.cit260.byuiDo.model.InventoryItem;
  */
 public class TotalCostInventoryControl {
 
-    public static double TotalCostInventoryControl(InventoryItem[] items) {
-        if (items == null){
-            return -1;
-        }
-    double totalCost = 0;
-    
-    for (InventoryItem item : items){
-        totalCost += item.getCost();
-      } 
-    
-    return totalCost;
-}
+    public static void calculateTotalCost(InventoryItem[] items) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
     
