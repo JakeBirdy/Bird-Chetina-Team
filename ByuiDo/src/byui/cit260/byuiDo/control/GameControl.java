@@ -5,6 +5,7 @@
  */
 package byui.cit260.byuiDo.control;
 
+import byui.cit260.byuiDo.exceptions.MapControlException;
 import byui.cit260.byuiDo.model.Actor;
 import byui.cit260.byuiDo.model.Game;
 import byui.cit260.byuiDo.model.InventoryItem;
@@ -36,7 +37,7 @@ public class GameControl {
     }
 
     //public static int createNewGame(Player player) {
-    public static int createNewGame(Player player) {
+    public static int createNewGame(Player player) throws MapControlException {
 
         // Check for invalid inputs
         if (player == null) {
