@@ -5,6 +5,7 @@
  */
 package byui.cit260.byuiDo.control;
 
+import byui.cit260.byuiDo.exceptions.MapControlException;
 import byui.cit260.byuiDo.model.Actor;
 import byui.cit260.byuiDo.model.Game;
 import byui.cit260.byuiDo.model.Location;
@@ -19,7 +20,7 @@ public class MapControl {
 
   
     
-    public static Map createMap( Game game, int noOfRows, int noOfColumns) { 
+    public static Map createMap( Game game, int noOfRows, int noOfColumns) throws MapControlException { 
         if (game == null || noOfRows < 0 || noOfColumns < 0) {
             return null;
         }
@@ -39,12 +40,8 @@ public class MapControl {
       map.setLocation(locations);
         
        
-        int success = assignActorsToLocations(locations);
-        if (success < 0) {
-            return null;
-        }
-        
-        
+        assignActorsToLocations(locations);
+      
         return map;
 }
 
@@ -89,10 +86,11 @@ public class MapControl {
         return locations; 
  }
 
-    private static int assignActorsToLocations(Location[][] locations) {
+    private static void assignActorsToLocations(Location[][] locations) 
+    throws MapControlException{
 
         if (locations == null) {
-            return -1;
+           throw new MapControlException("location is invalid");
         }
 
         Actor[] actors = Actor.values();
@@ -102,7 +100,7 @@ public class MapControl {
                 continue;
             }
         }
-        return 1;
+
     }
 
  }
