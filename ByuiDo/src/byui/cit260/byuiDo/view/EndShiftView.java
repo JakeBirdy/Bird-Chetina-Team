@@ -36,37 +36,29 @@ class EndShiftView extends View{
     }
 
     public boolean doAction(String[] inputs) {
+        double hours = 0;
+        double pay = 0;
         try{
-        double hours = Double.parseDouble(inputs[0]);
+        hours = Double.parseDouble(inputs[0]);
         } catch (NumberFormatException nfe) {
-            System.err.println("Enter a number");
+            System.out.println("Enter a number");
+       return false;
         }
          try{   
-        double pay = Double.parseDouble(inputs[1]);
+        pay = Double.parseDouble(inputs[1]);
          } catch (NumberFormatException nfe) {
              System.out.println("Enter a number");
+             return false;
          }
         double wage = 0;
         try {
             wage = JobControl.calculateWage(hours, pay);
         } catch (JobControlException ex) {
-            Logger.getLogger(EndShiftView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        if (wage == -1) {
-            System.out.println("Your hours are wrong!!!");
-            return false;
-        }
-        if (wage == -2) {
-            System.out.println("WAIT, WE NEED TO PAY YOU!!!");
+            System.out.println(ex.getMessage());
             return false;
         }
 
-        if (wage < 5) {
-            System.out.println("You need more money!!!");
-            return false;
-        }
-
+       
         System.out.println("your wage is: " + wage);
 //double hours = jobControl.calculateWage(0, 0)
         return true;
