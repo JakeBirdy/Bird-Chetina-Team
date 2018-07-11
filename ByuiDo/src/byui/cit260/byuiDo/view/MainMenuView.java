@@ -8,10 +8,13 @@ package byui.cit260.byuiDo.view;
 
 
 import byui.cit260.byuiDo.control.GameControl;
+import byui.cit260.byuiDo.exceptions.MapControlException;
 import byui.cit260.byuiDo.view.GameMenuView;
 import byuido.ByuiDo;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,7 +45,13 @@ public class MainMenuView extends View {
         menuItem = menuItem.toUpperCase();
         switch (menuItem) {
             case "N":
+        {
+            try {
                 this.startNewGame();
+            } catch (MapControlException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
                 break;
             case "R":
                 this.restartGame();
@@ -59,7 +68,7 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlException {
         GameControl.createNewGame(ByuiDo.getPlayer());
         //gameMenuView = create a new GameMenuView object
         GameMenuView gameMenu = new GameMenuView();

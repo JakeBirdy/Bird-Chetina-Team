@@ -9,6 +9,23 @@ package byui.cit260.byuiDo.view;
  *
  * @author Jake
  */
-public class MoveActorView {
-    
+public class MoveActorView extends View {
+
+    public MoveActorView() {
+    }
+
+    @Override
+    public String[] getInputs() {
+        String[] inputs = new String[2];
+       String mainInpput = this.getInput(" ");
+        
+        
+        return inputs;
+    }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

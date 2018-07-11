@@ -11,6 +11,7 @@ import byui.cit260.byuiDo.model.Game;
 import byui.cit260.byuiDo.model.Location;
 import byui.cit260.byuiDo.model.Map;
 import byui.cit260.byuiDo.model.QuestionLocation;
+import byuido.ByuiDo;
 
 /**
  *
@@ -18,9 +19,7 @@ import byui.cit260.byuiDo.model.QuestionLocation;
  */
 public class MapControl {
 
-  
-    
-    public static Map createMap( Game game, int noOfRows, int noOfColumns) throws MapControlException { 
+    public static Map createMap(Game game, int noOfRows, int noOfColumns) throws MapControlException {
         if (game == null || noOfRows < 0 || noOfColumns < 0) {
             return null;
         }
@@ -30,26 +29,23 @@ public class MapControl {
         map.setRowCount(5);
         map.setCurrentColumn(0);
         map.setCurrentRow(0);
-        
+
         game.setMap(map);
-        
-       Location[][] locations = createLocations(noOfRows, noOfColumns);
-        if (locations == null){
+
+        Location[][] locations = createLocations(noOfRows, noOfColumns);
+        if (locations == null) {
             return null;
         }
-      map.setLocation(locations);
-        
-       
-        assignActorsToLocations(locations);
-      
-        return map;
-}
+        map.setLocation(locations);
 
-    
-    
-        private static Location[][] createLocations(int row, int column) {
-        
-            Location[][] locations = new Location[row][column];
+        assignActorsToLocations(locations);
+
+        return map;
+    }
+
+    private static Location[][] createLocations(int row, int column) {
+
+        Location[][] locations = new Location[row][column];
 //    private String description;
 //    private int row;
 //    private int column;
@@ -81,16 +77,15 @@ public class MapControl {
         locations[4][2] = new Location("Jake and Tatiana doing their homework on a bench, man those guys are cool!", 4, 2, false, '.', false);
         locations[4][3] = new Location("Apartment", 4, 3, false, '.', false);
         locations[4][4] = new Location("Walmart", 4, 4, false, '.', false);
-        
-            
-        return locations; 
- }
 
-    private static void assignActorsToLocations(Location[][] locations) 
-    throws MapControlException{
+        return locations;
+    }
+
+    private static void assignActorsToLocations(Location[][] locations)
+            throws MapControlException {
 
         if (locations == null) {
-           throw new MapControlException("location is invalid");
+            throw new MapControlException("location is invalid");
         }
 
         Actor[] actors = Actor.values();
@@ -103,4 +98,18 @@ public class MapControl {
 
     }
 
- }
+    public static Location moveActor(Actor actor, int newRow, int newColumn) throws MapControlException {
+        if (actor == null) {
+            throw new MapControlException("Actor is invalid");
+        }
+        Game game = ByuiDo.getCurrentGame();
+        Map map = game.getMap();
+        Location[][] locations = map.getLocation();
+
+        if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()) {
+            throw new MapControlException("That is outside the map boundries");
+        }
+        int currentRow = (int) actor.getCoordinates().getX();
+        int currentColumn = (int) actor.getCoordinates().getY();
+        
+    }
