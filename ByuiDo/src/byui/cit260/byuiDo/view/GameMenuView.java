@@ -29,6 +29,7 @@ class GameMenuView extends View{
 String[] inputs = new String[1];
         System.out.println("****************************************************\n"
         + "* M - Map                                          *\n"
+        + "* G - Go somewhere else                            *\n"
         + "* W - Where am I                                   *\n"
         + "* C - Initiate Conversation                        *\n"
         + "* A - Ask out on date                              *\n"
@@ -51,6 +52,9 @@ String menuItem = inputs[0];
         switch (menuItem) {
             case "M":
                 this.getMap();
+                break;
+            case "G":
+                this.goSomewhere();
                 break;
             case "W":
                 this.getWhereAmI();
@@ -155,6 +159,11 @@ String menuItem = inputs[0];
     private void goToTemple() {
         TempleMenuView templeMenu = new TempleMenuView();
         templeMenu.display();
+    }
+
+    private void goSomewhere() {
+        MoveActorView moveActorView = new MoveActorView();
+        moveActorView.display();        
     }
 
 }

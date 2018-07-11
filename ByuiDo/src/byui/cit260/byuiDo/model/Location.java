@@ -33,6 +33,18 @@ public class Location implements Serializable {
         this.description = description;
     }
 
+    //------------------------------Associations------------------------------//
+    //this is the association between the Location class and the Actor class
+    private Actor actor;
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+    
     public int getRow() {
         return row;
     }

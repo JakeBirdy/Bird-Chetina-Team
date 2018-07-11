@@ -56,6 +56,14 @@ public enum Actor implements Serializable {
     public Point getCoordinates() {
         return coordinates;
     }
+    
+    public void setRow(int row) {
+        this.coordinates.x = row;
+    }
+
+    public void setColumn(int column) {
+        this.coordinates.y = column;
+    }
 
     public String getType() {
         return type;

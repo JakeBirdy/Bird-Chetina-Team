@@ -46,12 +46,7 @@ public class MapControl {
     private static Location[][] createLocations(int row, int column) {
 
         Location[][] locations = new Location[row][column];
-//    private String description;
-//    private int row;
-//    private int column;
-//    private boolean visited;
-//    private char displaySymbol;
-//    private boolean blocked;
+
         locations[0][0] = new Location("apartment complex, no one's around", 0, 0, false, '.', false);
         locations[0][1] = new Location("street with students, no one looks interested in you", 0, 1, false, '.', false);
         locations[0][2] = new Location("an empty building where burgers and music used to be", 0, 2, false, '.', false);
@@ -109,7 +104,15 @@ public class MapControl {
         if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()) {
             throw new MapControlException("That is outside the map boundries");
         }
-        int currentRow = (int) actor.getCoordinates().getX();
-        int currentColumn = (int) actor.getCoordinates().getY();
-        
+        int currentRow = actor.getCoordinates().x;
+        int currentColumn = actor.getCoordinates().y;
+        Location oldLocation = locations[currentRow][currentColumn];
+        Location newLocation = locations[newRow][newColumn];
+        oldLocation.setActor(null);
+        newLocation.setActor(actor);
+        newLocation.setVisited(true);
+        actor.setRow(newRow);
+        actor.setColumn(newColumn);
+        return newLocation;
     }
+}
