@@ -47,31 +47,31 @@ public class MapControl {
 
         Location[][] locations = new Location[row][column];
 
-        locations[0][0] = new Location("apartment complex, no one's around", 0, 0, false, '.', false);
-        locations[0][1] = new Location("street with students, no one looks interested in you", 0, 1, false, '.', false);
-        locations[0][2] = new Location("an empty building where burgers and music used to be", 0, 2, false, '.', false);
-        locations[0][3] = new Location("apartments and other buildings", 0, 3, false, '.', false);
+        locations[0][0] = new Location("apartment complex, no one's around", 0, 0, false, '_', false);
+        locations[0][1] = new Location("street with students, no one looks interested in you", 0, 1, false, '_', false);
+        locations[0][2] = new Location("an empty building where burgers and music used to be", 0, 2, false, '_', false);
+        locations[0][3] = new Location("apartments and other buildings", 0, 3, false, '_', false);
         locations[0][4] = new QuestionLocation(false, "park", "A park where people might be interested in playing games!", 0, 4, true, 'P', false);
-        locations[1][0] = new Location("Little Caesars, closed do to the pizza riots", 1, 0, false, '.', false);
-        locations[1][1] = new Location("Brolim's, but I prefer Walmart.", 1, 1, false, '.', false);
-        locations[1][2] = new Location("empty street", 1, 2, false, '.', false);
-        locations[1][3] = new Location("McDonalds", 1, 3, false, '.', false);
-        locations[1][4] = new Location("buildings, no interest to you", 1, 4, false, '.', false);
+        locations[1][0] = new Location("Little Caesars, closed do to the pizza riots", 1, 0, false, '_', false);
+        locations[1][1] = new Location("Brolim's, but I prefer Walmart.", 1, 1, false, '_', false);
+        locations[1][2] = new Location("empty street", 1, 2, false, '_', false);
+        locations[1][3] = new Location("McDonalds", 1, 3, false, '_', false);
+        locations[1][4] = new Location("buildings, no interest to you", 1, 4, false, '_', false);
         locations[2][0] = new QuestionLocation(true, "gym", "Where we work out our buns and theighs", 2, 0, true, 'G', false);
-        locations[2][1] = new Location("Apartment", 2, 1, false, '.', false);
-        locations[2][2] = new Location("Apartment", 2, 2, false, '.', false);
-        locations[2][3] = new Location("Apartment", 2, 3, false, '.', false);
+        locations[2][1] = new Location("Apartment", 2, 1, false, '_', false);
+        locations[2][2] = new Location("Apartment", 2, 2, false, '_', false);
+        locations[2][3] = new Location("Apartment", 2, 3, false, '_', false);
         locations[2][4] = new QuestionLocation(true, "Math Lab", "Maybe we should give up hope of finding someone and do our homework...!", 2, 4, true, 'T', false);
-        locations[3][0] = new Location("Apartment", 3, 0, false, '.', false);
-        locations[3][1] = new Location("Apartment", 3, 1, false, '.', false);
-        locations[3][2] = new Location("Apartment", 3, 2, false, '.', false);
-        locations[3][3] = new Location("Apartment", 3, 3, false, '.', false);
-        locations[3][4] = new Location("Apartment", 3, 4, false, '.', false);
-        locations[4][0] = new Location("Apartment", 4, 0, false, '.', false);
-        locations[4][1] = new Location("Apartment", 4, 1, false, '.', false);
-        locations[4][2] = new Location("Jake and Tatiana doing their homework on a bench, man those guys are cool!", 4, 2, false, '.', false);
-        locations[4][3] = new Location("Apartment", 4, 3, false, '.', false);
-        locations[4][4] = new Location("Walmart", 4, 4, false, '.', false);
+        locations[3][0] = new Location("Apartment", 3, 0, false, '_', false);
+        locations[3][1] = new Location("Apartment", 3, 1, false, '_', false);
+        locations[3][2] = new Location("Apartment", 3, 2, false, '_', false);
+        locations[3][3] = new Location("Apartment", 3, 3, false, '_', false);
+        locations[3][4] = new Location("Apartment", 3, 4, false, '_', false);
+        locations[4][0] = new Location("Apartment", 4, 0, false, '_', false);
+        locations[4][1] = new Location("Apartment", 4, 1, false, '_', false);
+        locations[4][2] = new Location("Jake and Tatiana doing their homework on a bench, man those guys are cool!", 4, 2, false, '_', false);
+        locations[4][3] = new Location("Apartment", 4, 3, false, '_', false);
+        locations[4][4] = new Location("Walmart", 4, 4, false, '_', false);
 
         return locations;
     }
@@ -101,7 +101,7 @@ public class MapControl {
         Map map = game.getMap();
         Location[][] locations = map.getLocation();
 
-        if (newRow < 1 || newRow > map.getRowCount() || newColumn < 1 || newColumn > map.getColumnCount()) {
+        if (newRow < 0 || newRow >= 5 || newRow > map.getRowCount() || newColumn < 0 || newColumn >= 5 ||newColumn > map.getColumnCount()) {
             throw new MapControlException("That is outside the map boundries");
         }
         int currentRow = actor.getCoordinates().x;
