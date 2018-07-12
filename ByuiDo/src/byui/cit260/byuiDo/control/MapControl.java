@@ -102,11 +102,11 @@ public class MapControl {
         Map map = game.getMap();
         Location[][] locations = map.getLocation();
 
-        if (newRow < 0 || newRow >= 5 || newRow > map.getRowCount() || newColumn < 0 || newColumn >= 5 ||newColumn > map.getColumnCount()) {
+        if (newRow < 0 || newRow >= map.getRowCount() || newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("That is outside the map boundries");
         }
-        int currentRow = actor.getCoordinates().x;
-        int currentColumn = actor.getCoordinates().y;
+        int currentRow = actor.getCoordinates().y;
+        int currentColumn = actor.getCoordinates().x;
         Location oldLocation = locations[currentRow][currentColumn];
         Location newLocation = locations[newRow][newColumn];
         oldLocation.setActor(null);

@@ -58,11 +58,11 @@ public enum Actor implements Serializable {
     }
     
     public void setRow(int row) {
-        this.coordinates.x = row;
+        this.coordinates.y = row;
     }
 
     public void setColumn(int column) {
-        this.coordinates.y = column;
+        this.coordinates.x = column;
     }
 
     public String getType() {
