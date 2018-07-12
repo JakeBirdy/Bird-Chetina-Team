@@ -5,19 +5,22 @@
  */
 package byui.cit260.byuiDo.control;
 
+import byui.cit260.byuiDo.exceptions.StoreControlException;
+
 /**
  *
  * @author tanya
  */
 public class StoreControl {
 
-    public static double calcTotalPrice(double itemPrice, double itemAmount) {
+    public static double calcTotalPrice(double itemPrice, double itemAmount)
+    throws StoreControlException{
         if (itemPrice <= 0) {
-            return -1;
+            throw new StoreControlException("Needs the correct price");
         }
 
         if (itemAmount <= 0 || itemAmount > 20) {
-            return -1;
+            throw new StoreControlException("Needs the correct price");
         }
 
         double price = itemPrice * itemAmount;

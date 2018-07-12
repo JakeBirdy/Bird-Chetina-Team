@@ -5,6 +5,7 @@
  */
 package byui.cit260.byuiDo.control;
 
+import byui.cit260.byuiDo.exceptions.InventoryControlException;
 import byui.cit260.byuiDo.model.InventoryItem;
 import java.util.ArrayList;
 
@@ -14,9 +15,11 @@ import java.util.ArrayList;
  */
 public class InventoryControl {
 
-    public static double calculateTotalCost(InventoryItem[] items) {
+    public static double calculateTotalCost(InventoryItem[] items)
+    throws InventoryControlException {
         if (items == null){
-            return -1;
+            throw new InventoryControlException("Number of items should be greater than zero");
+            
         }
     double totalCost = 0;
     
