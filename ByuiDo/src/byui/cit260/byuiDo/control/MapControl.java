@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -47,30 +48,30 @@ public class MapControl {
 
         Location[][] locations = new Location[row][column];
 
-        locations[0][0] = new Location("apartment complex, no one's around", 0, 0, false, '_', false);
-        locations[0][1] = new Location("street with students, no one looks interested in you", 0, 1, false, '_', false);
-        locations[0][2] = new Location("an empty building where burgers and music used to be", 0, 2, false, '_', false);
-        locations[0][3] = new Location("apartments and other buildings", 0, 3, false, '_', false);
+        locations[0][0] = new Location("NorthPoint Apartments, no one's around", 0, 0, false, '_', false);
+        locations[0][1] = new Location("Street with students, no one looks interested in you", 0, 1, false, '_', false);
+        locations[0][2] = new Location("An empty building where burgers and music used to be", 0, 2, false, '_', false);
+        locations[0][3] = new Location("Cottonwood Apartments and other buildings", 0, 3, false, '_', false);
         locations[0][4] = new QuestionLocation(false, "park", "A park where people might be interested in playing games!", 0, 4, true, 'P', false);
         locations[1][0] = new Location("Little Caesars, closed do to the pizza riots", 1, 0, false, '_', false);
         locations[1][1] = new Location("Brolim's, but I prefer Walmart.", 1, 1, false, '_', false);
-        locations[1][2] = new Location("empty street", 1, 2, false, '_', false);
+        locations[1][2] = new Location("Empty street", 1, 2, false, '_', false);
         locations[1][3] = new Location("McDonalds", 1, 3, false, '_', false);
-        locations[1][4] = new Location("buildings, no interest to you", 1, 4, false, '_', false);
+        locations[1][4] = new Location("Buildings, no interest to you", 1, 4, false, '_', false);
         locations[2][0] = new QuestionLocation(true, "gym", "Where we work out our buns and theighs", 2, 0, true, 'G', false);
-        locations[2][1] = new Location("Apartment", 2, 1, false, '_', false);
-        locations[2][2] = new Location("Apartment", 2, 2, false, '_', false);
-        locations[2][3] = new Location("Apartment", 2, 3, false, '_', false);
-        locations[2][4] = new QuestionLocation(true, "Math Lab", "Maybe we should give up hope of finding someone and do our homework...!", 2, 4, true, 'T', false);
-        locations[3][0] = new Location("Apartment", 3, 0, false, '_', false);
-        locations[3][1] = new Location("Apartment", 3, 1, false, '_', false);
-        locations[3][2] = new Location("Apartment", 3, 2, false, '_', false);
-        locations[3][3] = new Location("Apartment", 3, 3, false, '_', false);
-        locations[3][4] = new Location("Apartment", 3, 4, false, '_', false);
-        locations[4][0] = new Location("Apartment", 4, 0, false, '_', false);
-        locations[4][1] = new Location("Apartment", 4, 1, false, '_', false);
+        locations[2][1] = new Location("Swimming pool", 2, 1, false, '_', false);
+        locations[2][2] = new Location("Temple, where you can propose to your beloved one!", 2, 2, false, '_', false);
+        locations[2][3] = new Location("AppleBees, restaurant", 2, 3, false, '_', false);
+        locations[2][4] = new QuestionLocation(true, "math Lab", "Maybe we should give up hope of finding someone and do our homework...!", 2, 4, true, 'T', false);
+        locations[3][0] = new Location("David O. McKay Library | BYU-Idaho", 3, 0, false, '_', false);
+        locations[3][1] = new Location("Street with students, no one looks interested in you", 3, 1, false, '_', false);
+        locations[3][2] = new Location("Mountain Lofts luxury  apartment complex", 3, 2, false, '_', false);
+        locations[3][3] = new Location("Stadium, outdoor activities", 3, 3, false, '_', false);
+        locations[3][4] = new Location("BYU-I Crossroads Food Court", 3, 4, false, '_', false);
+        locations[4][0] = new Location("Church building, church gatherings each Sunday at 9am", 4, 0, false, '_', false);
+        locations[4][1] = new Location("Centre Square Apartments", 4, 1, false, '_', false);
         locations[4][2] = new Location("Jake and Tatiana doing their homework on a bench, man those guys are cool!", 4, 2, false, '_', false);
-        locations[4][3] = new Location("Apartment", 4, 3, false, '_', false);
+        locations[4][3] = new Location("Highway 33, a lot of cars, do not cross the road", 4, 3, false, '_', false);
         locations[4][4] = new Location("Walmart", 4, 4, false, '_', false);
 
         return locations;
