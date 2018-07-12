@@ -7,7 +7,7 @@ package byui.cit260.byuiDo.view;
 
 import byui.cit260.byuiDo.model.Game;
 import byui.cit260.byuiDo.model.Location;
-import byui.cit260.byuiDo.view.ConversationMenuView;
+import byui.cit260.byuiDo.view.ConversationView;
 import byui.cit260.byuiDo.view.DateMenuView;
 import byui.cit260.byuiDo.view.JobMenuView;
 import byui.cit260.byuiDo.view.StoreMenuView;
@@ -123,8 +123,8 @@ String menuItem = inputs[0];
     }
 
     private void startConversation() {
-     ConversationMenuView conversationMenu = new ConversationMenuView();
-     conversationMenu.displayConversationMenu();
+     ConversationView conversationMenu = new ConversationView();
+     conversationMenu.display();
     }
 
     private void askToStartDate() {

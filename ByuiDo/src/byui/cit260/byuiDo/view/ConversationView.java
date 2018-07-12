@@ -11,10 +11,21 @@ package byui.cit260.byuiDo.view;
  */
 public class ConversationView extends View {
 
+    public ConversationView() {
+    }
+
     @Override
     public String[] getInputs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        String[] inputs = new String[1];
+        System.out.println("****************************************************\n"
+        + "*                                          *\n"
+        + "* T - Get total price of all items                                  *\n"        
+        + "* P - Print list                                                    *\n"
+        + "* Q - Go back                                                       *\n"
+        + "*********************************************************************");
+        String menuOption = this.getInput("\nPlease enter the Menu Option");
+        inputs[0] = menuOption;
+        return inputs;   }
 
     @Override
     public boolean doAction(String[] inputs) {

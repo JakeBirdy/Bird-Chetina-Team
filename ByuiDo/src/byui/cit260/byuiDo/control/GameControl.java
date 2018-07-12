@@ -68,7 +68,7 @@ public class GameControl {
         ByuiDo.setCurrentGame(game);
         return 1;
     }
-private String itemType;
+
     public static ArrayList<InventoryItem> createItems() {
       
         InventoryItem guitar = new InventoryItem();
