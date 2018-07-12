@@ -52,9 +52,5 @@ public class InventoryControl {
         InventoryItem tempTwo = inventoryItems.get(j);
         inventoryItems.set(j, temp);
         inventoryItems.set(i, tempTwo);
-    }
-
-    
-    
-    
+    }   
 }
