@@ -17,6 +17,7 @@ public class Player implements Serializable {
 
     private String name;
     private String gender;
+    private double money;
     private double bestTime;
     private Actor actor;
     private ArrayList<Game> games = new ArrayList<Game>();
@@ -39,6 +40,14 @@ public class Player implements Serializable {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
     }
 
     public double getBestTime() {
@@ -68,11 +77,12 @@ public class Player implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + Objects.hashCode(this.gender);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
-        hash = 83 * hash + Objects.hashCode(this.actor);
-        hash = 83 * hash + Objects.hashCode(this.games);
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.gender);
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.money) ^ (Double.doubleToLongBits(this.money) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.actor);
+        hash = 97 * hash + Objects.hashCode(this.games);
         return hash;
     }
 
@@ -88,6 +98,9 @@ public class Player implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
+        if (Double.doubleToLongBits(this.money) != Double.doubleToLongBits(other.money)) {
+            return false;
+        }
         if (Double.doubleToLongBits(this.bestTime) != Double.doubleToLongBits(other.bestTime)) {
             return false;
         }
@@ -108,9 +121,10 @@ public class Player implements Serializable {
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", gender=" + gender + ", bestTime=" + bestTime + ", actor=" + actor + ", games=" + games + '}';
+        return "Player{" + "name=" + name + ", gender=" + gender + ", money=" + money + ", bestTime=" + bestTime + ", actor=" + actor + ", games=" + games + '}';
     }
 
+    
     
 
 }

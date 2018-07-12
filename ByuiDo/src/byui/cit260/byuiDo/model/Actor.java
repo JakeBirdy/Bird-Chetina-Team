@@ -11,13 +11,16 @@ import java.util.ArrayList;
 
 public enum Actor implements Serializable {
 
-    John("John", "He likes sports", new Point(1,1), "Male", "1 + 1", "2" ),
-    David("David", "He likes math", new Point(1,2), "Male", "1 + 1", "2"),
-    Anna("Anna", "She likes music", new Point(1,1), "Female", "1 + 1", "2"),
-    Gabby("Gabby", "She likes sports", new Point(1,2), "Female", "1 + 1", "2");
+    PlayerGuy("PlayerGuy", "He is Awesome", new Point(1,1), "Male", "1 + 1", "2" ),
+    PlayerGirl("PlayerGirl", "She is Awesome", new Point(1,1), "Female", "1 + 1", "2"),
+    John("John", "He likes sports", new Point(2,2), "Male", "1 + 1", "2" ),
+    David("David","He likes math", new Point(2,4), "Male", "1 + 1", "2"),
+    Anna("Anna","She likes music", new Point(1,1), "Female", "1 + 1", "2"),
+    Gabby("Gabby","She likes sports", new Point(1,2), "Female", "1 + 1", "2");
     
     
     private final String name;
+   
     private final String description;
     private final Point coordinates;
     private final String type;
@@ -28,6 +31,7 @@ public enum Actor implements Serializable {
     
     private Actor(String name, String description, Point coordinates, String type, String problem, String solution) {
         this.name = name;
+        
         this.description = description;
         this.coordinates = coordinates;
         this.type = type;

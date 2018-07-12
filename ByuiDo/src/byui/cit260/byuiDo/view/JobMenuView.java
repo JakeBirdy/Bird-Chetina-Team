@@ -12,7 +12,10 @@ import java.util.Scanner;
  *
  * @author Jake
  */
-class JobMenuView extends View{
+public class JobMenuView extends View{
+
+    public JobMenuView() {
+    }
 
    
     public String[] getInputs() {
@@ -28,7 +31,7 @@ String[] inputs = new String[1];
     }
 
     public boolean doAction(String[] inputs) {
-String menuItem = inputs[0];
+        String menuItem = inputs[0];
         menuItem = menuItem.toUpperCase();
         switch (menuItem) {
             case "P":

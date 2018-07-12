@@ -10,6 +10,8 @@ import byui.cit260.byuiDo.exceptions.InventoryControlException;
 import byui.cit260.byuiDo.model.InventoryItem;
 import byuido.ByuiDo;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,9 +26,7 @@ class ViewInventoryView extends View{
 String[] inputs = new String[1];
         System.out.println("****************************************************\n"
         + "* What do you want to do?                                           *\n"
-        + "* P - Sort items                                                    *\n"
         + "* T - Get total price of all items                                  *\n"        
-        + "* Q - Go back                                                       *\n"
         + "* P - Print list                                                    *\n"
         + "* Q - Go back                                                       *\n"
         + "*********************************************************************");
@@ -43,7 +43,13 @@ String menuItem = inputs[0];
                 this.listItems();
                 break;
            case "T":
-                this.getTotalCost();
+{ //!!!!!!!!!!!!!!!!!check this later!!!!!!!!!!!!!!!!!!!!!!
+    try {
+        this.getTotalCost();
+    } catch (InventoryControlException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
                 break;
            case "Q":
                 return true;    
