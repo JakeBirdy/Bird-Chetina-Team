@@ -20,7 +20,7 @@ public class StoreControl {
         }
 
         if (itemAmount <= 0 || itemAmount > 20) {
-            throw new StoreControlException("Needs the correct price");
+            throw new StoreControlException("Please check the correct number of items");
         }
 
         double price = itemPrice * itemAmount;

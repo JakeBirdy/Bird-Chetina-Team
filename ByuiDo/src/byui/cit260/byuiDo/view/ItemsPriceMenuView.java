@@ -8,6 +8,7 @@ package byui.cit260.byuiDo.view;
 import byui.cit260.byuiDo.control.StoreControl;
 import byui.cit260.byuiDo.model.Player;
 import byui.cit260.byuiDo.control.StoreControl;
+import byui.cit260.byuiDo.exceptions.StoreControlException;
 import java.util.Scanner;
 
 /**
@@ -68,13 +69,26 @@ public class ItemsPriceMenuView extends View{
                 System.out.println("Please enter the valid item");
                 return false;
         }
-
-        double ammount = Double.parseDouble(inputs[0]);
-        double total = StoreControl.calcTotalPrice(15, ammount);
-        if (total <= 0) {
-            System.out.println("Please check the valid number of items");
+        double amount = 0;
+        double total = 0;
+        
+        try{
+        amount = Double.parseDouble(inputs[0]);
+        } catch (NumberFormatException nfe) {
+            System.out.println("Enter a number");
+       return false;
+        }
+        
+        try {
+            total = StoreControl.calcTotalPrice(15, amount);
+        } catch (StoreControlException ex) {
+            System.out.println(ex.getMessage());
             return false;
         }
+        
+        
+        
+    
         System.out.println("Thank you for the purchase from Walmart!");
 
         return true;
