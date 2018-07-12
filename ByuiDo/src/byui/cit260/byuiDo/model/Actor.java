@@ -11,16 +11,16 @@ import java.util.ArrayList;
 
 public enum Actor implements Serializable {
 
-    PlayerGuy("PlayerGuy", new Double(10), "He is Awesome", new Point(1,1), "Male", "1 + 1", "2" ),
-    PlayerGirl("PlayerGirl", new Double(10),"She is Awesome", new Point(1,1), "Female", "1 + 1", "2"),
-    John("John", new Double(0), "He likes sports", new Point(2,2), "Male", "1 + 1", "2" ),
-    David("David", new Double(0),"He likes math", new Point(2,4), "Male", "1 + 1", "2"),
-    Anna("Anna", new Double(0),"She likes music", new Point(1,1), "Female", "1 + 1", "2"),
-    Gabby("Gabby", new Double(0),"She likes sports", new Point(1,2), "Female", "1 + 1", "2");
+    PlayerGuy("PlayerGuy", "He is Awesome", new Point(1,1), "Male", "1 + 1", "2" ),
+    PlayerGirl("PlayerGirl", "She is Awesome", new Point(1,1), "Female", "1 + 1", "2"),
+    John("John", "He likes sports", new Point(2,2), "Male", "1 + 1", "2" ),
+    David("David","He likes math", new Point(2,4), "Male", "1 + 1", "2"),
+    Anna("Anna","She likes music", new Point(1,1), "Female", "1 + 1", "2"),
+    Gabby("Gabby","She likes sports", new Point(1,2), "Female", "1 + 1", "2");
     
     
     private final String name;
-    private final double money;
+   
     private final String description;
     private final Point coordinates;
     private final String type;
@@ -29,9 +29,9 @@ public enum Actor implements Serializable {
     private final ArrayList <Relationship> relationships = new ArrayList<>();
     private ArrayList<InventoryItem> inventory = new ArrayList<>();
     
-    private Actor(String name, Double money, String description, Point coordinates, String type, String problem, String solution) {
+    private Actor(String name, String description, Point coordinates, String type, String problem, String solution) {
         this.name = name;
-        this.money = money;
+        
         this.description = description;
         this.coordinates = coordinates;
         this.type = type;
@@ -47,14 +47,8 @@ public enum Actor implements Serializable {
         return solution;
     }
 
-    public Double setMoney() {
-        return money;
-    }
-    
-    public Double getMoney() {
-        return money;
-    }
-    
+ 
+
     public String getName() {
         return name;
     }
