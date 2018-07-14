@@ -133,6 +133,8 @@ String menuItem = inputs[0];
     }
 
     private void getRelationshipStatus() {
+        RelationshipView relationshipMenu = new RelationshipView();
+        relationshipMenu.display();
 
     }
 

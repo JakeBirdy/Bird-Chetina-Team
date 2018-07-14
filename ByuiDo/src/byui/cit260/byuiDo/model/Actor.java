@@ -11,12 +11,35 @@ import java.util.ArrayList;
 
 public enum Actor implements Serializable {
 
-    PlayerGuy("PlayerGuy", "He is Awesome", new Point(1,1), "Male", "1 + 1", "2" ),
-    PlayerGirl("PlayerGirl", "She is Awesome", new Point(1,1), "Female", "1 + 1", "2"),
-    John("John", "He likes sports", new Point(2,2), "Male", "1 + 1", "2" ),
-    David("David","He likes math", new Point(2,4), "Male", "1 + 1", "2"),
-    Anna("Anna","She likes music", new Point(1,1), "Female", "1 + 1", "2"),
-    Gabby("Gabby","She likes sports", new Point(1,2), "Female", "1 + 1", "2");
+    PlayerGuy("PlayerGuy", "He is Awesome", new Point(1,1), "Male", "1 + 1", "2", 
+            new Question[]{new Question("question", "answer", "Options"), 
+            new Question("question", "answer", "options"), 
+            new Question("question", "answer", "options")} ),
+   
+    PlayerGirl("PlayerGirl", "She is Awesome", new Point(1,1), "Female", "1 + 1", "2", 
+     new Question[]{new Question("question", "answer", "Options"), 
+            new Question("question", "answer", "options"), 
+            new Question("question", "answer", "options")}),
+   
+    John("John", "He likes sports", new Point(2,2), "Male", "1 + 1", "2" ,
+     new Question[]{new Question("question", "answer", "Options"), 
+            new Question("question", "answer", "options"), 
+            new Question("question", "answer", "options")}),
+   
+    David("David","He likes math", new Point(2,4), "Male", "1 + 1", "2",
+     new Question[]{new Question("question", "answer", "Options"), 
+            new Question("question", "answer", "options"), 
+            new Question("question", "answer", "options")}),
+   
+    Anna("Anna","She likes music", new Point(1,1), "Female", "1 + 1", "2",
+     new Question[]{new Question("She is practicing the flute", "C", "C - Compliment her Playing \nI - insult Playing \n L - Leave"), 
+            new Question("question", "answer", "options"), 
+            new Question("question", "answer", "options")}),
+   
+    Gabby("Gabby","She likes sports", new Point(1,2), "Female", "1 + 1", "2",
+     new Question[]{new Question("question", "answer", "Options"), 
+            new Question("question", "answer", "options"), 
+            new Question("question", "answer", "options")});
     
     
     private final String name;
@@ -26,17 +49,18 @@ public enum Actor implements Serializable {
     private final String type;
     private final String problem;
     private final String solution;
+    private final Question[] conversation;
     private final ArrayList <Relationship> relationships = new ArrayList<>();
     private ArrayList<InventoryItem> inventory = new ArrayList<>();
     
-    private Actor(String name, String description, Point coordinates, String type, String problem, String solution) {
+    private Actor(String name, String description, Point coordinates, String type, String problem, String solution, Question[] conversation) {
         this.name = name;
-        
         this.description = description;
         this.coordinates = coordinates;
         this.type = type;
         this.problem = problem;
         this.solution = solution;
+        this.conversation = conversation;
     }
 
     public String getProblem() {
@@ -45,6 +69,10 @@ public enum Actor implements Serializable {
 
     public String getSolution() {
         return solution;
+    }
+
+    public Question[] getConversation() {
+        return conversation;
     }
 
  

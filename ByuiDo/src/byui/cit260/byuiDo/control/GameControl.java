@@ -5,6 +5,7 @@
  */
 package byui.cit260.byuiDo.control;
 
+import byui.cit260.byuiDo.exceptions.GameControlException;
 import byui.cit260.byuiDo.exceptions.MapControlException;
 import byui.cit260.byuiDo.model.Actor;
 import byui.cit260.byuiDo.model.Game;
@@ -16,6 +17,7 @@ import byui.cit260.byuiDo.model.Player;
 import byui.cit260.byuiDo.model.Question;
 import byui.cit260.byuiDo.model.QuestionType;
 import byui.cit260.byuiDo.model.Relationship;
+import java.awt.Point;
 import java.util.ArrayList;
 
 /**
@@ -67,6 +69,22 @@ public class GameControl {
         game.setMap(map);
         ByuiDo.setCurrentGame(game);
         return 1;
+    }
+    
+    public static Actor getNPCByPoint(Point point) throws GameControlException{
+        Actor actor = null;
+        
+        Actor[] actors = Actor.values();
+        for(int i=0; i < actors.length; i++){
+            if(actors[i].getCoordinates().equals(point) 
+                    && !(actors[i].getName().equals("PlayerGuy") || !actors[i].getName().equals("PlayerGirl"))){
+                actor = actors[i];
+            }
+        }
+        if(actor == null){
+            throw new GameControlException("There is no actor here");
+        }
+        return actor;
     }
 
     public static ArrayList<InventoryItem> createItems() {
@@ -156,7 +174,16 @@ public class GameControl {
         
         return questions;
     }
-
+public static Relationship findRelationship(Actor actor) throws GameControlException{
+    ArrayList<Relationship> list = ByuiDo.getCurrentGame().getPlayer().getActor().getRelationships();
+    for(Relationship relationship : list){
+        if(relationship.getActorOne().equals(actor) || relationship.getActorTwo().equals(actor)){
+            return relationship;
+        }
+    }
+    throw new GameControlException("No such relationship");
+    
+}
     public static int propose(Actor person) {
        System.out.println("*** propose to " + person.name());
        
@@ -173,7 +200,7 @@ public class GameControl {
        // search for relationship between the players Actor and person
        Relationship relationship = null;
        for(Relationship nextRelationship : playersRelationships) {
-           if (nextRelationship.getActorTwo() == person) {
+           if (nextRelationship.getActorTwo().equals(person)) {
                relationship = nextRelationship;
                break;         
            }

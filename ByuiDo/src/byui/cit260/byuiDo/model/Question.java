@@ -17,11 +17,22 @@ public class Question implements Serializable{
     
     private String question;
     private String answer;
+    private String options;
     private boolean required;
     private long amount;
     private ArrayList<ChallengeScene> scene = new ArrayList<>();
 
     public Question() {
+    }
+
+    public Question(String question, String answer, String options) {
+        this.question = question;
+        this.answer = answer;
+        this.options = options;
+    }
+
+    public String getOptions() {
+        return options;
     }
 
     public String getQuestion() {

@@ -11,18 +11,16 @@ import byui.cit260.byuiDo.model.Actor;
 import byui.cit260.byuiDo.model.Relationship;
 import byuido.ByuiDo;
 import java.awt.Point;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author tanya
  */
-public class ConversationView extends View {
+public class ConversationViewTwo extends View {
 
-    public ConversationView() {
+    public ConversationViewTwo() {
     }
-
+    
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
@@ -33,9 +31,9 @@ public class ConversationView extends View {
         } catch (GameControlException ex) {
             System.out.println(ex.getMessage());
         }
-        System.out.println(actor.getConversation()[0].getQuestion());
-        String menuOption = this.getInput(actor.getConversation()[0].getOptions());
-        inputs[0] = menuOption;
+        System.out.println(actor.getConversation()[1].getQuestion());
+        String menuOption = this.getInput(actor.getConversation()[1].getOptions());
+        inputs[1] = menuOption;
         return inputs;
     }
 
@@ -43,27 +41,20 @@ public class ConversationView extends View {
     public boolean doAction(String[] inputs) {
            Point currentLocation = ByuiDo.getCurrentGame().getPlayer().getActor().getCoordinates();
         Actor actor = null;
-        try {
-            actor = GameControl.getNPCByPoint(currentLocation);
-            Relationship relationship = GameControl.findRelationship(actor);
-                   relationship.setRelationshipScore(relationship.getRelationshipScore() + 1);
-        } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
-        }
+        
      
-        if(inputs[0].equals(actor.getConversation()[0].getAnswer())){
-            ConversationViewTwo view = new ConversationViewTwo();
-            view.display();try {
+        if(inputs[1].equals(actor.getConversation()[1].getAnswer())){
+            ConversationViewThree view = new ConversationViewThree();
+            view.display();
+            try {
             actor = GameControl.getNPCByPoint(currentLocation);
             Relationship relationship = GameControl.findRelationship(actor);
                    relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
         } catch (GameControlException ex) {
             System.out.println(ex.getMessage());
         }
-            
         }
         return true;
             
-    }
-
+    }   
 }

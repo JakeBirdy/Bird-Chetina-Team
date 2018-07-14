@@ -18,11 +18,11 @@ import java.util.logging.Logger;
  *
  * @author tanya
  */
-public class ConversationView extends View {
+public class ConversationViewThree extends View{
 
-    public ConversationView() {
+    public ConversationViewThree() {
     }
-
+    
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
@@ -33,9 +33,9 @@ public class ConversationView extends View {
         } catch (GameControlException ex) {
             System.out.println(ex.getMessage());
         }
-        System.out.println(actor.getConversation()[0].getQuestion());
-        String menuOption = this.getInput(actor.getConversation()[0].getOptions());
-        inputs[0] = menuOption;
+        System.out.println(actor.getConversation()[2].getQuestion());
+        String menuOption = this.getInput(actor.getConversation()[2].getOptions());
+        inputs[2] = menuOption;
         return inputs;
     }
 
@@ -45,25 +45,20 @@ public class ConversationView extends View {
         Actor actor = null;
         try {
             actor = GameControl.getNPCByPoint(currentLocation);
-            Relationship relationship = GameControl.findRelationship(actor);
-                   relationship.setRelationshipScore(relationship.getRelationshipScore() + 1);
         } catch (GameControlException ex) {
             System.out.println(ex.getMessage());
         }
      
-        if(inputs[0].equals(actor.getConversation()[0].getAnswer())){
-            ConversationViewTwo view = new ConversationViewTwo();
-            view.display();try {
-            actor = GameControl.getNPCByPoint(currentLocation);
-            Relationship relationship = GameControl.findRelationship(actor);
+        if(inputs[2].equals(actor.getConversation()[2].getAnswer())){
+               try {
+                   Relationship relationship = GameControl.findRelationship(actor);
                    relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
-        } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
-        }
-            
+               } catch (GameControlException ex) {
+                   System.out.println("No relationship");
+               }
         }
         return true;
             
     }
-
+    
 }
