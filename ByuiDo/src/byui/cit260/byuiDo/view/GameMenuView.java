@@ -78,7 +78,7 @@ String menuItem = inputs[0];
                 break;
             case "T":
                 this.goToTemple();
-                break;
+                break;                
             case "S":
                 this.saveGame();
                 break;
@@ -129,7 +129,7 @@ String menuItem = inputs[0];
 
     private void askToStartDate() {
     DateMenuView dateMenu = new DateMenuView();
-     dateMenu.displayDateMenu();
+     dateMenu.display();
     }
 
     private void getRelationshipStatus() {

@@ -34,8 +34,8 @@ public class TempleMenuView extends View {
                 + "* Q - Exit                                         *\n"
                 + "****************************************************");
 
-        String templeMenu = this.getInput("\nPlease enter your option");
-        inputs[0] = templeMenu;
+        String storeMenu = this.getInput("\nPlease enter your option");
+        inputs[0] = storeMenu;
         return inputs;
     }
 

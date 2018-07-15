@@ -41,29 +41,31 @@ public class ConversationView extends View {
 
     @Override
     public boolean doAction(String[] inputs) {
-           Point currentLocation = ByuiDo.getCurrentGame().getPlayer().getActor().getCoordinates();
+        Point currentLocation = ByuiDo.getCurrentGame().getPlayer().getActor().getCoordinates();
         Actor actor = null;
         try {
             actor = GameControl.getNPCByPoint(currentLocation);
             Relationship relationship = GameControl.findRelationship(actor);
-                   relationship.setRelationshipScore(relationship.getRelationshipScore() + 1);
+            relationship.setRelationshipScore(relationship.getRelationshipScore() + 1);
         } catch (GameControlException ex) {
             System.out.println(ex.getMessage());
         }
-     
-        if(inputs[0].equals(actor.getConversation()[0].getAnswer())){
+
+        if (inputs[0].equals(actor.getConversation()[0].getAnswer())) {
             ConversationViewTwo view = new ConversationViewTwo();
-            view.display();try {
-            actor = GameControl.getNPCByPoint(currentLocation);
-            Relationship relationship = GameControl.findRelationship(actor);
-                   relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
-        } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
-        }
-            
+            view.display();
+
+            try {
+                actor = GameControl.getNPCByPoint(currentLocation);
+                Relationship relationship = GameControl.findRelationship(actor);
+                relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
+            } catch (GameControlException ex) {
+                System.out.println(ex.getMessage());
+            }
+
         }
         return true;
-            
+
     }
 
 }
