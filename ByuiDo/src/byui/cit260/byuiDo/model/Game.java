@@ -6,6 +6,7 @@
 package byui.cit260.byuiDo.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -17,7 +18,7 @@ public class Game implements Serializable {
 
     private long totalDays;
     private double currentScore;
-    private InventoryItem[] items;
+    private ArrayList<InventoryItem> items;
     private Player player;
     private Map map;
     
@@ -41,11 +42,11 @@ public class Game implements Serializable {
         this.currentScore = currentScore;
     }
 
-    public InventoryItem[] getItems() {
+    public ArrayList<InventoryItem> getItems() {
         return items;
     }
 
-    public void setItems(InventoryItem[] items) {
+    public void setItems(ArrayList<InventoryItem> items) {
         this.items = items;
     }
 
@@ -70,7 +71,7 @@ public class Game implements Serializable {
         int hash = 5;
         hash = 59 * hash + (int) (this.totalDays ^ (this.totalDays >>> 32));
         hash = 59 * hash + (int) (Double.doubleToLongBits(this.currentScore) ^ (Double.doubleToLongBits(this.currentScore) >>> 32));
-        hash = 59 * hash + Arrays.deepHashCode(this.items);
+        hash = 59 * hash + Objects.hashCode(this.items);
         hash = 59 * hash + Objects.hashCode(this.player);
         hash = 59 * hash + Objects.hashCode(this.map);
         return hash;
@@ -94,7 +95,7 @@ public class Game implements Serializable {
         if (Double.doubleToLongBits(this.currentScore) != Double.doubleToLongBits(other.currentScore)) {
             return false;
         }
-        if (!Arrays.deepEquals(this.items, other.items)) {
+        if (!Objects.equals(this.items, other.items)) {
             return false;
         }
         if (!Objects.equals(this.player, other.player)) {

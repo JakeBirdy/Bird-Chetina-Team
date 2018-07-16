@@ -59,9 +59,10 @@ public class GameControl {
         // Create the lists used in the game
         //items = createItems()
         ArrayList<InventoryItem> items = createItems();
+        game.setItems(items);
         //call setter to save items list in the game object
         //// Create all other list (e.g., questions, weapons, spells) and save in the game
-//    Question[] questionList = createQuestions();
+// Question[] questionList = createQuestions();
         Map map = MapControl.createMap(game, 5, 5);
         if (map == null) {
             return -2;

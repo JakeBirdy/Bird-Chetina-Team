@@ -22,7 +22,7 @@ public enum Actor implements Serializable {
             new Question("question", "answer", "options")}),
    
     John("John", "He likes sports", new Point(2,2), "Male", "1 + 1", "2" ,
-     new Question[]{new Question("question", "answer", "Options"), 
+     new Question[]{new Question("He is going to play footbal ", "answer", "C - Compliment her Playing \n I - insult Playing \n L - Leave"), 
             new Question("question", "answer", "options"), 
             new Question("question", "answer", "options")}),
    
