@@ -11,6 +11,8 @@ import byui.cit260.byuiDo.model.Map;
 import byui.cit260.byuiDo.model.Player;
 import byui.cit260.byuiDo.model.Question;
 import byui.cit260.byuiDo.model.Relationship;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
@@ -20,6 +22,11 @@ public class ByuiDo {
 
     private static Game currentGame = null;
     private static Player player = null;
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    
 
     public static void main(String[] args) {
         try {
@@ -28,6 +35,8 @@ public class ByuiDo {
         } catch (Throwable ie) {
             System.out.println(ie.fillInStackTrace());
         }
+        ByuiDo.inFile = 
+        
     }
 
     public static Game getCurrentGame() {
