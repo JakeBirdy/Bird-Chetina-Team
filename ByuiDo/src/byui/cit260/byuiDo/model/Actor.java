@@ -32,7 +32,7 @@ public enum Actor implements Serializable {
             new Question("question", "answer", "options")}),
    
     Anna("Anna","She likes music", new Point(1,1), "Female", "1 + 1", "2",
-     new Question[]{new Question("She is practicing the flute", "C", "C - Compliment her Playing \nI - insult Playing \n L - Leave"), 
+     new Question[]{new Question("She is practicing the flute", "C", "C - Compliment her Playing \n I - insult Playing \n L - Leave"), 
             new Question("question", "answer", "options"), 
             new Question("question", "answer", "options")}),
    

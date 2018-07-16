@@ -16,20 +16,20 @@ import java.util.ArrayList;
 public class InventoryControl {
 
     public static double calculateTotalCost(InventoryItem[] items)
-    throws InventoryControlException {
-        if (items == null){
+            throws InventoryControlException {
+        if (items == null) {
             throw new InventoryControlException("Number of items should be greater than zero");
-            
         }
-    double totalCost = 0;
-    
-    for (InventoryItem item : items){
-        totalCost += item.getCost();
-      } 
-    
-    return totalCost;
-}
-     public static ArrayList<InventoryItem> sortInventory(ArrayList<InventoryItem> inventoryItems) {
+        double totalCost = 0;
+
+        for (InventoryItem item : items) {
+            totalCost += item.getCost();
+        }
+
+        return totalCost;
+    }
+
+    public static ArrayList<InventoryItem> sortInventory(ArrayList<InventoryItem> inventoryItems) {
         ArrayList<InventoryItem> items = (ArrayList<InventoryItem>) inventoryItems.clone();
         int n = items.size();
         int k;
@@ -52,5 +52,5 @@ public class InventoryControl {
         InventoryItem tempTwo = inventoryItems.get(j);
         inventoryItems.set(j, temp);
         inventoryItems.set(i, tempTwo);
-    }   
+    }
 }
