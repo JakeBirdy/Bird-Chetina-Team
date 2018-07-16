@@ -12,6 +12,8 @@ import byui.cit260.byuiDo.model.Player;
 import byui.cit260.byuiDo.model.Question;
 import byui.cit260.byuiDo.model.Relationship;
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 /**
@@ -29,14 +31,49 @@ public class ByuiDo {
     
 
     public static void main(String[] args) {
-        try {
-            StartProgramView startProgramView = new StartProgramView();
-            startProgramView.display();
-        } catch (Throwable ie) {
-            System.out.println(ie.fillInStackTrace());
-        }
+      
+        try{
+            
         ByuiDo.inFile = 
+                   new BufferedReader (new InputStreamReader(System.in));
+        ByuiDo.outFile = new PrintWriter(System.out, true);
         
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.display();
+        return; 
+        } catch (Throwable e) {
+            System.out.println("Exception: " + e.toString() +
+                               "\nCause: " + e.getCause() +
+                               " \nMessage: " + e.getMessage());
+        e.printStackTrace();
+        }
+        finally {
+            try{   
+            if (ByuiDo.inFile != null)
+                ByuiDo.inFile.close();
+        
+            if (ByuiDo.outFile != null)
+            ByuiDo.outFile.close();
+            }catch (IOException ex) {
+                System.out.println("Input or output file did not close successfully");
+            }
+        }
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        ByuiDo.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        ByuiDo.inFile = inFile;
     }
 
     public static Game getCurrentGame() {
