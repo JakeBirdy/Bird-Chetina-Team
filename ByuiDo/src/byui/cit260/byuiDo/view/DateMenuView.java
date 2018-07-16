@@ -24,20 +24,19 @@ class DateMenuView extends View {
     @Override
     public String[] getInputs() {
 
-        //inputs = new String array one element long 
         String[] inputs = new String[2];
         //Display a description of the view 
         System.out.println("*******************************************\n"
                 + "* Choose who you want to go with on your date      *\n"
                 + " A - Anna                                          *\n"
-                + " A - Gabby                                         *\n"
-                + " A - David                                         *\n"
-                + " A - John                                          *\n"
-                + "* Q - Exit                                         *\n"
+                + " G - Gabby                                         *\n"
+                + " D - David                                         *\n"
+                + " J - John                                          *\n"
+                + " Q - Exit                                          *\n"
                 + "****************************************************");
 
         String storeMenu = this.getInput("\nPlease enter your option");
-        inputs[1] = storeMenu;
+        inputs[0] = storeMenu.toUpperCase();
 
         //Display a description of the view 
         System.out.println("*******************************************\n"
@@ -49,7 +48,7 @@ class DateMenuView extends View {
                 + "****************************************************");
 
         storeMenu = this.getInput("\nPlease enter your option");
-        inputs[1] = storeMenu;
+        inputs[1] = storeMenu.toUpperCase();
         return inputs;
     }
 
@@ -95,23 +94,29 @@ class DateMenuView extends View {
         return false;
     }
 
-    private void date(Actor loveIntrest, double price) {
-        //check if date will go with you
-        if (loveInterest )
-        try {
-            //pay for date
-            Player player = ByuiDo.getCurrentGame().getPlayer();
-            player.setMoney(player.getMoney() - price);
-            
-            //increase relationship score
-            Relationship relationship = GameControl.findRelationship(actor);
-            relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
+    private void date(Actor person, double price) {
+        int loveInterest = GameControl.checkScore(person, 30);
 
-        } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
+        if (loveInterest < 0) {
+            System.out.println("No person was selected");
+        } else if (loveInterest == 0) {
+            System.out.println("Sorry, I don't want to go on a date with you");
+        } else {
+
+            try {
+                //pay for date
+                Player player = ByuiDo.getCurrentGame().getPlayer();
+                player.setMoney(player.getMoney() - price);
+
+                //increase relationship score
+                Relationship relationship = GameControl.findRelationship(person);
+                relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
+                System.out.println("I would like to go on a date with you!");
+            } catch (GameControlException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
 
-        //pay for date
     }
 
 }
