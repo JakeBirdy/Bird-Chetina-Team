@@ -86,7 +86,7 @@ String menuItem = inputs[0];
                 return true;    
 
             default:
-                System.out.println("Invalid menu item");
+                 ErrorView.display(this.getClass().getName(), "Invalid menu item");
         }
         return false;
     }
@@ -144,7 +144,8 @@ String menuItem = inputs[0];
     }
 
     private void saveGame() {
-
+        SaveGameView saveGame = new SaveGameView();
+        saveGame.display();
     }
 
     private void goToShop() {

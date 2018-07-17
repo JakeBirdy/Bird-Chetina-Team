@@ -70,7 +70,7 @@ class DateMenuView extends View {
                 break;
 
             default:
-                System.out.println("That is not a vaild person to date");
+                this.console.println("That is not a vaild person to date");
         }
 
         String menuItem = inputs[1];
@@ -89,7 +89,7 @@ class DateMenuView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
         }
         return false;
     }
@@ -98,7 +98,7 @@ class DateMenuView extends View {
         int loveInterest = GameControl.checkScore(person, 30);
 
         if (loveInterest < 0) {
-            System.out.println("No person was selected");
+             ErrorView.display(this.getClass().getName(), "No person was selected");
         } else if (loveInterest == 0) {
             System.out.println("Sorry, I don't want to go on a date with you");
         } else {
