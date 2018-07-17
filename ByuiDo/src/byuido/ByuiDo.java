@@ -41,9 +41,7 @@ public class ByuiDo {
             startProgramView.display();
             return;
         } catch (Throwable e) {
-            System.out.println("Exception: " + e.toString()
-                    + "\nCause: " + e.getCause()
-                    + " \nMessage: " + e.getMessage());
+          
             e.printStackTrace();
         } finally {
             try {
@@ -57,7 +55,7 @@ public class ByuiDo {
                     logFile.close();
                 }
             } catch (IOException ex) {
-                System.out.println("Input or output file did not close successfully");
+                this.console.println("Input or output file did not close successfully");
             }
         }
     }
