@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class InventoryControl {
 
-    public static double calculateTotalCost(InventoryItem[] items)
+    public static double calculateTotalCost(ArrayList<InventoryItem> items)
             throws InventoryControlException {
         if (items == null) {
             throw new InventoryControlException("Number of items should be greater than zero");

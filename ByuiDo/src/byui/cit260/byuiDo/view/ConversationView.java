@@ -33,6 +33,11 @@ public class ConversationView extends View {
         } catch (GameControlException ex) {
             System.out.println(ex.getMessage());
         }
+        if(actor == null){
+            System.out.println("There is no one here");
+            inputs[0] = "Q";
+            return inputs;
+        }
         System.out.println(actor.getConversation()[0].getQuestion());
         String menuOption = this.getInput(actor.getConversation()[0].getOptions());
         inputs[0] = menuOption;
@@ -41,6 +46,9 @@ public class ConversationView extends View {
 
     @Override
     public boolean doAction(String[] inputs) {
+        if (inputs[0].equals("Q")){
+            return true;
+        }
         Point currentLocation = ByuiDo.getCurrentGame().getPlayer().getActor().getCoordinates();
         Actor actor = null;
         try {

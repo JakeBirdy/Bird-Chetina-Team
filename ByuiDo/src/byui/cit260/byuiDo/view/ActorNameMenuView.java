@@ -78,7 +78,7 @@ public class ActorNameMenuView extends View {
     }
 
     private int propose(Actor person) {
-        int engaged = GameControl.propose(person);
+        int engaged = GameControl.checkScore(person, 75);
         
         // if engaged < 0 then
             // print error message - no person was selected
