@@ -66,10 +66,10 @@ public class ActorNameMenuView extends View {
                 return false;
         }
         if (engaged < 0) {
-            System.out.println("Invalid person");
+            ErrorView.display(this.getClass().getName(), "Invalid person");
             return false;
         }
-        if (engaged > 0 ){
+        if (engaged > 74 ){
             System.out.println("Congratulations! You're engaged!");
             return true;
         }
@@ -89,7 +89,7 @@ public class ActorNameMenuView extends View {
         // endif 
         
         if (engaged < 0)
-            System.out.println("No person was selected");
+             ErrorView.display(this.getClass().getName(), "No person was selected");
         else if (engaged == 0)
             System.out.println("Sorry, I don't want to marry you at this time");
         else

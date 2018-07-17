@@ -45,7 +45,7 @@ public class MoveActorView extends View {
             intRow = Integer.parseInt(row) - 1;
             intColumn = Integer.parseInt(column) - 1;
         } catch (NumberFormatException e) {
-            System.out.println("The row and column must be a number.");
+             ErrorView.display(this.getClass().getName(), "The row and column must be a number.");
             return false;
         }
         Player player = ByuiDo.getPlayer();
@@ -54,7 +54,7 @@ public class MoveActorView extends View {
         try {
             newLocation = MapControl.moveActor(actor, intRow, intColumn);
         } catch (MapControlException e) {
-            System.out.println(e.getMessage());
+             ErrorView.display(this.getClass().getName(), e.getMessage());
             return false;
         }
         System.out.println(newLocation.getDescription());

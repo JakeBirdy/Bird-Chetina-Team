@@ -54,7 +54,7 @@ class EndShiftView extends View{
         try {
             wage = JobControl.calculateWage(hours, pay);
         } catch (JobControlException ex) {
-            System.out.println(ex.getMessage());
+             ErrorView.display(this.getClass().getName(), ex.getMessage());
             return false;
         }
 
