@@ -24,36 +24,39 @@ public class ByuiDo {
 
     private static Game currentGame = null;
     private static Player player = null;
-    
+
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-    
+
     private static PrintWriter logFile = null;
 
     public static void main(String[] args) {
-      
-        try{
-            
-        inFile = new BufferedReader (new InputStreamReader(System.in));
-        outFile = new PrintWriter(System.out, true);
-        logFile = new PrintWriter("logfile.txt ");
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
-        return; 
+
+        try {
+
+            inFile = new BufferedReader(new InputStreamReader(System.in));
+            outFile = new PrintWriter(System.out, true);
+            logFile = new PrintWriter("logfile.txt ");
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+            return;
         } catch (Throwable e) {
-            System.out.println("Exception: " + e.toString() +
-                               "\nCause: " + e.getCause() +
-                               " \nMessage: " + e.getMessage());
-        e.printStackTrace();
-        }
-        finally {
-            try{   
-            if (ByuiDo.inFile != null)
-                ByuiDo.inFile.close();
-        
-            if (ByuiDo.outFile != null)
-            ByuiDo.outFile.close();
-            }catch (IOException ex) {
+            System.out.println("Exception: " + e.toString()
+                    + "\nCause: " + e.getCause()
+                    + " \nMessage: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ByuiDo.inFile != null) {
+                    ByuiDo.inFile.close();
+                }
+                if (ByuiDo.outFile != null) {
+                    ByuiDo.outFile.close();
+                }
+                if (logFile != null) {
+                    logFile.close();
+                }
+            } catch (IOException ex) {
                 System.out.println("Input or output file did not close successfully");
             }
         }
