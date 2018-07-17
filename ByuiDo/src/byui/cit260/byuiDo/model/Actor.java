@@ -22,9 +22,9 @@ public enum Actor implements Serializable {
             new Question("question", "answer", "options")}),
    
     John("John", "He likes sports", new Point(2,2), "Male", "1 + 1", "2" ,
-     new Question[]{new Question("He is going to play footbal ", "answer", "C - Compliment her Playing \n I - insult Playing \n L - Leave"), 
-            new Question("question", "answer", "options"), 
-            new Question("question", "answer", "options")}),
+     new Question[]{new Question("He is going to play footbal ", "A", "A - Go with him to see his game \n B - Say you are busy\n C - Start talk to another guy"), 
+            new Question("His team lost the game", "A", "A - Support him and tell him next win will be his \n B - Say he could play better \n L - You were boring and you left"), 
+            new Question("He invited you to go with him on a party ", "C", "A - You are already go with other friends \n B - You accept his invitation \n L - You are very happy to go on a date with him")}),
    
     David("David","He likes math", new Point(2,4), "Male", "1 + 1", "2",
      new Question[]{new Question("question", "answer", "Options"), 

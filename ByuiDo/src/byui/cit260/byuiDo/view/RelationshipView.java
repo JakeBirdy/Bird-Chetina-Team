@@ -18,6 +18,7 @@ public class RelationshipView extends View {
     public RelationshipView() {
     }
         //get players name
+    @Override
     public String[] getInputs() {
 
         //inputs = new String array one element long 
