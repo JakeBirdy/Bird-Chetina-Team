@@ -44,16 +44,17 @@ public abstract class View implements ViewInterface {
             boolean valid = false;
 
         //WHILE valid == false (no input value has been entered) 
+        try {
         while (valid == false) {
             //Display the prompt message 
             System.out.println(promptMessage);
 
             //Get the value entered from the keyboard 
-            Scanner inFile;
-            inFile = new Scanner(System.in);
+            input = this.keyboard.readLine();
+           
 
             //Trim off leading and trailing blanks from the value 
-            input = inFile.nextLine().trim();
+            input = input.trim();
 
             //IF length of the value < 1 then
             if (input.length() < 1) //Display "You must enter a non-blank value”
@@ -62,6 +63,9 @@ public abstract class View implements ViewInterface {
                 continue;
             }
             valid = true;
+        }
+        }catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
         }
         return input;
         

@@ -28,16 +28,15 @@ public class ByuiDo {
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
     
-    
+    private static PrintWriter logFile = null;
 
     public static void main(String[] args) {
       
         try{
             
-        ByuiDo.inFile = 
-                   new BufferedReader (new InputStreamReader(System.in));
-        ByuiDo.outFile = new PrintWriter(System.out, true);
-        
+        inFile = new BufferedReader (new InputStreamReader(System.in));
+        outFile = new PrintWriter(System.out, true);
+        logFile = new PrintWriter("logfile.txt ");
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
         return; 
@@ -58,6 +57,14 @@ public class ByuiDo {
                 System.out.println("Input or output file did not close successfully");
             }
         }
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        ByuiDo.logFile = logFile;
     }
 
     public static PrintWriter getOutFile() {
