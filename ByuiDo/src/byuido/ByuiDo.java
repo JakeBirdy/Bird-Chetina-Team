@@ -34,9 +34,9 @@ public class ByuiDo {
 
         try {
 
-            inFile = new BufferedReader(new InputStreamReader(System.in));
-            outFile = new PrintWriter(System.out, true);
-            logFile = new PrintWriter("logfile.txt ");
+            ByuiDo.inFile = new BufferedReader(new InputStreamReader(System.in));
+            ByuiDo.outFile = new PrintWriter(System.out, true);
+            ByuiDo.logFile = new PrintWriter("logfile.txt ");
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
             return;
