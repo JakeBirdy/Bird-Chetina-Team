@@ -184,7 +184,7 @@ public class GameControl {
         Relationship relationship = new Relationship();
         relationship.setActorOne(ByuiDo.getCurrentGame().getPlayer().getActor());
 
-        relationship.setActorTwo(ByuiDo.getCurrentGame().getPlayer().getActor());
+        relationship.setActorTwo(GameControl.getNPCByPoint(ByuiDo.getCurrentGame().getPlayer().getActor().getCoordinates()));
         relationship.setRelationshipScore(0);
         relationship.setStatus("");
 

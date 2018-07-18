@@ -108,7 +108,8 @@ public class ActorNameMenuView extends View {
     }
 
     private void printRelationshipScore() {
-        
+        PrintRelationshipScoreView relationshipScore = new PrintRelationshipScoreView();
+        relationshipScore.display();
     }
 }
 
