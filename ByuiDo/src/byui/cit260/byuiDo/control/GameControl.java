@@ -18,6 +18,10 @@ import byui.cit260.byuiDo.model.Question;
 import byui.cit260.byuiDo.model.QuestionType;
 import byui.cit260.byuiDo.model.Relationship;
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -221,6 +225,54 @@ public class GameControl {
         return 1; // that are engagged
     }
 
+    public static void saveGame(Game game, String fileName) throws GameControlException{
+        
+          try(FileOutputStream fops = new FileOutputStream(fileName)) {
+           ObjectOutputStream output = new ObjectOutputStream(fops);
+           
+           output.writeObject(game); 
+       }
+       catch(Exception e) {
+           throw new GameControlException(e.getMessage());
+       }
+    }
+    
+    public static void getSavedGame(String filePath) 
+                       throws GameControlException {
+       Game game = null;
+       try(FileInputStream fips = new FileInputStream(filePath)) {
+           ObjectInputStream input = new ObjectInputStream(fips);
+           
+           game = (Game) input.readObject();
+       }
+       catch (Exception e) {
+           throw new GameControlException(e.getMessage());
+       }
+       //close the output file
+       ByuiDo.setCurrentGame(game);
+        //save Game
+ }
+
+    
+    public static Game getGame(Game game, String filePath) throws GameControlException{
+    if(filePath == null){
+        throw new GameControlException("Invalid file path");
+    }
+    
+     try(FileInputStream fips = new FileInputStream(filePath)) {
+           ObjectInputStream input = new ObjectInputStream(fips);
+           
+           game = (Game) input.readObject();
+       }
+       catch (Exception e) {
+           throw new GameControlException(e.getMessage());
+       }
+       ByuiDo.setCurrentGame(game);
+        //save Game
+
+ return game;
+  }
+    
 }
 // length = ItemType.value().length() length would be put in 
 //private double quantityInStock;
