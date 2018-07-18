@@ -81,7 +81,7 @@ public class MainMenuView extends View {
 //        startExistingGameView = Create a new StartExistingGameView
         StartExistingGameView startExistingGame = new StartExistingGameView();
 //        startExistingGameView.displayStartExistingGameView(); 
-        startExistingGame.displayStartExistingGame();
+        startExistingGame.display();
     }
 
     private void getHelp() {
