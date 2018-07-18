@@ -254,20 +254,23 @@ public class GameControl {
  }
 
     
-    public static Game getGame(Game game, String filePath) throws GameControlException{
+    public static Game getGame(String filePath) throws GameControlException{
     if(filePath == null){
         throw new GameControlException("Invalid file path");
     }
-    
+    Game game = null;
      try(FileInputStream fips = new FileInputStream(filePath)) {
            ObjectInputStream input = new ObjectInputStream(fips);
            
-           game = (Game) input.readObject();
+         game = (Game) input.readObject();
+         ByuiDo.setCurrentGame(game);
+         ByuiDo.setPlayer(game.getPlayer());
        }
        catch (Exception e) {
            throw new GameControlException(e.getMessage());
        }
-       ByuiDo.setCurrentGame(game);
+        
+       
         //save Game
 
  return game;
