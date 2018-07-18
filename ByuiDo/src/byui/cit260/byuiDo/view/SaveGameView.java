@@ -5,6 +5,8 @@
  */
 package byui.cit260.byuiDo.view;
 
+import byui.cit260.byuiDo.control.GameControl;
+import byui.cit260.byuiDo.exceptions.GameControlException;
 import byui.cit260.byuiDo.model.Game;
 import byuido.ByuiDo;
 
@@ -12,16 +14,13 @@ import byuido.ByuiDo;
  *
  * @author Jake
  */
-class SaveGameView extends View{
+public class SaveGameView extends View{
 
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        this.console.println("****************************************************");
-        this.console.println("* Save the game by pressing S                      *\n"
-                         + "* or return by pressing Q                          *");
-        this.console.println("****************************************************");
-         String menuOption = this.getInput("\nPlease enter the Menu Option");
+        this.console.println("To save the game, enter a valid file name");
+        String menuOption = this.getInput("\nPlease enter the Menu Option");
         inputs[0] = menuOption;
         return inputs;
     }
@@ -29,11 +28,20 @@ class SaveGameView extends View{
     @Override
     public boolean doAction(String[] inputs) {
     String filePath = inputs[0];
+    
     Game game = ByuiDo.getCurrentGame();
     
     try {
+        GameControl.saveGame(game, filePath);
+        this.console.println("The game was saved successfully to" + filePath);
         
     }
+    catch (GameControlException e){
+        ErrorView.display(this.getClass().getName(), e.getMessage());
+        return false;
+    }
+    
+    return true;
     }
 
     

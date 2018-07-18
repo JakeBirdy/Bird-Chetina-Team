@@ -55,7 +55,8 @@ public class ByuiDo {
                     logFile.close();
                 }
             } catch (IOException ex) {
-                this.console.println("Input or output file did not close successfully");
+                System.out.println("Input or output file did not close successfully");
+              return;
             }
         }
     }

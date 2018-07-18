@@ -1,3 +1,0 @@
-
-
-byui.cit260.byuiDo.view.MoveActorView - That is outside the map boundries

@@ -13,6 +13,7 @@ import byui.cit260.byuiDo.model.Location;
 import byui.cit260.byuiDo.model.Map;
 import byui.cit260.byuiDo.model.QuestionLocation;
 import byuido.ByuiDo;
+import java.awt.Point;
 
 /**
  *
@@ -87,11 +88,10 @@ public class MapControl {
         Actor[] actors = Actor.values();
 
         for (Actor actor : actors) {
-            if (actor.getName().equals("playerM") || actor.getName().equals("playerF")) {
-                continue;
-            }
+            Point coordinates = actor.getCoordinates();
+            Location location = locations[coordinates.x][coordinates.y];
+            location.setActor(actor);
         }
-
     }
 
     public static Location moveActor(Actor actor, int newRow, int newColumn) throws MapControlException {
