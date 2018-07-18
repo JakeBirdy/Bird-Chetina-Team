@@ -19,15 +19,15 @@ class HelpMenuView extends View{
     public String[] getInputs() {
        
         String[] inputs = new String[1];
-        System.out.println("****************************************************");
-        System.out.println("* G - What is the Goal of the game                 *");
-        System.out.println("* M - How to move                                  *");
-        System.out.println("* C - How to initiate conversation                 *");
-        System.out.println("* D - How to go on a date                          *");
-        System.out.println("* E - How to earn money                            *");
-        System.out.println("* R - How to look representable                    *");
-        System.out.println("* Q - Go back                                      *");
-        System.out.println("****************************************************");
+        this.console.println("****************************************************");
+        this.console.println("* G - What is the Goal of the game                 *");
+        this.console.println("* M - How to move                                  *");
+        this.console.println("* C - How to initiate conversation                 *");
+        this.console.println("* D - How to go on a date                          *");
+        this.console.println("* E - How to earn money                            *");
+        this.console.println("* R - How to look representable                    *");
+        this.console.println("* Q - Go back                                      *");
+        this.console.println("****************************************************");
        String input = this.getInput("\nEnter letter below:");
         inputs[0] = input;
        return inputs;
@@ -65,21 +65,21 @@ class HelpMenuView extends View{
     }
 
     private void getGoalOfGame() {
-        System.out.println("Goal of the Game");
+        this.console.println("Goal of the Game");
     }
     private void howToMove() {
-    System.out.println("How to move around");    }
+    this.console.println("How to move around");    }
 
     private void startConversation() {
-    System.out.println("How to initiate conversation with someone");   }
+    this.console.println("How to initiate conversation with someone");   }
 
     private void howToStartDate() {
-    System.out.println("How to go on a date");    }
+    this.console.println("How to go on a date");    }
 
     private void howToEarnMoney() {
-    System.out.println("How to earn money");    }
+    this.console.println("How to earn money");    }
 
     private void howToLookGood() {
-    System.out.println("How to be representable for certain places");    }
+    this.console.println("How to be representable for certain places");    }
     
 }

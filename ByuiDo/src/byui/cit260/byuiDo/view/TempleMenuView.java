@@ -24,7 +24,7 @@ public class TempleMenuView extends View {
         String[] inputs = new String[1];
 
         //Display a description of the view 
-        System.out.println("****************************************************\n"
+        this.console.println("****************************************************\n"
                 + "* Welcome to the temple!                            *\n"
                 + "* Here you can propose to your loved one!          *\n"
                 + "* Choose -Propose- if you are ready to propose     *\n"
@@ -50,7 +50,7 @@ public class TempleMenuView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
                 return false;
         }
         return true;

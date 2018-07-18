@@ -25,7 +25,7 @@ public class ActorNameMenuView extends View {
         String[] inputs = new String[1];
 
         //Display a description of the view 
-        System.out.println("****************************************************\n"
+        this.console.println("****************************************************\n"
                 + "* Here the List of your potential choice           *\n"
                 + "* Type the name you choose                         *\n"
                 + "* J - John                                         *\n"
@@ -62,7 +62,7 @@ public class ActorNameMenuView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
                 return false;
         }
         if (engaged < 0) {
@@ -70,10 +70,10 @@ public class ActorNameMenuView extends View {
             return false;
         }
         if (engaged > 74 ){
-            System.out.println("Congratulations! You're engaged!");
+            this.console.println("Congratulations! You're engaged!");
             return true;
         }
-        System.out.println("Sorry! I don't wanna merry you!");
+        this.console.println("Sorry! I don't wanna merry you!");
         return true;
     }
 
@@ -91,9 +91,9 @@ public class ActorNameMenuView extends View {
         if (engaged < 0)
              ErrorView.display(this.getClass().getName(), "No person was selected");
         else if (engaged == 0)
-            System.out.println("Sorry, I don't want to marry you at this time");
+            this.console.println("Sorry, I don't want to marry you at this time");
         else
-            System.out.println("Yes, You are my only true love for all eternity");
+            this.console.println("Yes, You are my only true love for all eternity");
             
         return engaged;
 

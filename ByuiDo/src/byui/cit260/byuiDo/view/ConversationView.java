@@ -31,14 +31,14 @@ public class ConversationView extends View {
         try {
             actor = GameControl.getNPCByPoint(currentLocation);
         } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }
         if(actor == null){
-            System.out.println("There is no one here");
+            this.console.println("There is no one here");
             inputs[0] = "Q";
             return inputs;
         }
-        System.out.println(actor.getConversation()[0].getQuestion());
+        this.console.println(actor.getConversation()[0].getQuestion());
         String menuOption = this.getInput(actor.getConversation()[0].getOptions());
         inputs[0] = menuOption;
         return inputs;
@@ -56,7 +56,7 @@ public class ConversationView extends View {
             Relationship relationship = GameControl.findRelationship(actor);
             relationship.setRelationshipScore(relationship.getRelationshipScore() + 1);
         } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }
 
         if (inputs[0].equals(actor.getConversation()[0].getAnswer())) {
@@ -68,7 +68,7 @@ public class ConversationView extends View {
                 Relationship relationship = GameControl.findRelationship(actor);
                 relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
             } catch (GameControlException ex) {
-                System.out.println(ex.getMessage());
+                this.console.println(ex.getMessage());
             }
 
         }

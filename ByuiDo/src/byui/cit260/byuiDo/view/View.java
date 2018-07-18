@@ -47,7 +47,7 @@ public abstract class View implements ViewInterface {
         try {
         while (valid == false) {
             //Display the prompt message 
-            System.out.println(promptMessage);
+            this.console.println(promptMessage);
 
             //Get the value entered from the keyboard 
             input = this.keyboard.readLine();
@@ -59,13 +59,13 @@ public abstract class View implements ViewInterface {
             //IF length of the value < 1 then
             if (input.length() < 1) //Display "You must enter a non-blank value”
             {
-                System.out.println("You must enter a non-blank value.");
+                this.console.println("You must enter a non-blank value.");
                 continue;
             }
             valid = true;
         }
         }catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            this.console.println("Error reading input: " + e.getMessage());
         }
         return input;
         

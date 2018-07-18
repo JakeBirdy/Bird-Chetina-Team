@@ -21,7 +21,7 @@ class ProblemView extends View{
         // TODO: get the actor in this location
         Actor problemActor = Actor.Anna;
         String[] inputs = new String[1];
-        System.out.println(problemActor.getProblem());
+        this.console.println(problemActor.getProblem());
         String solution = this.getInput("\nPlease enter your option");
         inputs[0] = solution;
         return inputs;

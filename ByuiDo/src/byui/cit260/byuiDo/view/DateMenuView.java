@@ -26,7 +26,7 @@ class DateMenuView extends View {
 
         String[] inputs = new String[2];
         //Display a description of the view 
-        System.out.println("*******************************************\n"
+        this.console.println("*******************************************\n"
                 + "* Choose who you want to go with on your date      *\n"
                 + " A - Anna                                          *\n"
                 + " G - Gabby                                         *\n"
@@ -39,7 +39,7 @@ class DateMenuView extends View {
         inputs[0] = storeMenu.toUpperCase();
 
         //Display a description of the view 
-        System.out.println("*******************************************\n"
+        this.console.println("*******************************************\n"
                 + "* Choose where you want to go on your date         *\n"
                 + "* L - Little Caesars      $6                       *\n"
                 + "* M - McDonalds	     $10                      *\n"
@@ -100,7 +100,7 @@ class DateMenuView extends View {
         if (loveInterest < 0) {
              ErrorView.display(this.getClass().getName(), "No person was selected");
         } else if (loveInterest == 0) {
-            System.out.println("Sorry, I don't want to go on a date with you");
+            this.console.println("Sorry, I don't want to go on a date with you");
         } else {
 
             try {
@@ -111,9 +111,9 @@ class DateMenuView extends View {
                 //increase relationship score
                 Relationship relationship = GameControl.findRelationship(person);
                 relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
-                System.out.println("I would like to go on a date with you!");
+                this.console.println("I would like to go on a date with you!");
             } catch (GameControlException ex) {
-                System.out.println(ex.getMessage());
+                this.console.println(ex.getMessage());
             }
         }
 

@@ -49,7 +49,7 @@ public class MainMenuView extends View {
             try {
                 this.startNewGame();
             } catch (MapControlException ex) {
-                System.out.println(ex.getMessage());
+                this.console.println(ex.getMessage());
             }
         }
                 break;
@@ -63,7 +63,7 @@ public class MainMenuView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
         }
         return false;
     }

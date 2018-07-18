@@ -23,15 +23,15 @@ public class StartProgramView extends View{
     //get players name
     public String[] getInputs() {
         String[] inputs = new String[1]; 
-        System.out.println("****************************************************");
-        System.out.println("* The game is a text-based dating simulator game.  *");
-        System.out.println("* You are a student at BYU-I, and you haven't been *");
-        System.out.println("* able to go on many dates in the past and the     *");
-        System.out.println("* the semester is coming to a close in ten days!   *");
-        System.out.println("* Your goal is to break the cycle and meet the     *");
-        System.out.println("* person of your dreams                            *");
-        System.out.println("* Good luck!                                       *");
-        System.out.println("****************************************************");
+        this.console.println("****************************************************");
+        this.console.println("* The game is a text-based dating simulator game.  *");
+        this.console.println("* You are a student at BYU-I, and you haven't been *");
+        this.console.println("* able to go on many dates in the past and the     *");
+        this.console.println("* the semester is coming to a close in ten days!   *");
+        this.console.println("* Your goal is to break the cycle and meet the     *");
+        this.console.println("* person of your dreams                            *");
+        this.console.println("* Good luck!                                       *");
+        this.console.println("****************************************************");
         String playersName = this.getInput("\nPlease enter name.");
         inputs[0] = playersName;
        return inputs;
@@ -46,17 +46,17 @@ public class StartProgramView extends View{
         //display “Could not create the player. “ +
         //“Enter a different name.”
         if (player == null) {
-            System.out.println("Could not create the player.");
-            System.out.println("Enter a different name.");
+            this.console.println("Could not create the player.");
+            this.console.println("Enter a different name.");
             //RETURN false
             return false;
             //ENDIF
         }
         //Display
-        System.out.println("================================================= ");
-        System.out.println("Welcome to the game " + playersName + "!");
-        System.out.println("We hope you have a lot of fun!");
-        System.out.println("================================================= ");
+        this.console.println("================================================= ");
+        this.console.println("Welcome to the game " + playersName + "!");
+        this.console.println("We hope you have a lot of fun!");
+        this.console.println("================================================= ");
         
         //mainMenuView = Create a new MainMenuView object 
         MainMenuView mainMenuView = new MainMenuView();

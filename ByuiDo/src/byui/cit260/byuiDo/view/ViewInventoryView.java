@@ -24,7 +24,7 @@ class ViewInventoryView extends View{
 
    public String[] getInputs() {
 String[] inputs = new String[1];
-        System.out.println("****************************************************\n"
+        this.console.println("****************************************************\n"
         + "* What do you want to do?                                           *\n"
         + "* T - Get total price of all items                                  *\n"        
         + "* P - Print list                                                    *\n"
@@ -47,7 +47,7 @@ String menuItem = inputs[0];
     try {
         this.getTotalCost();
     } catch (InventoryControlException ex) {
-        System.out.println(ex.getMessage());
+        this.console.println(ex.getMessage());
     }
 }
                 break;
@@ -55,7 +55,7 @@ String menuItem = inputs[0];
                 return true;    
 
             default:
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
         }
         return false;
     }
@@ -63,12 +63,12 @@ String menuItem = inputs[0];
     private void listItems() {
         ArrayList<InventoryItem> inventory = ByuiDo.getCurrentGame().getPlayer().getActor().getInventory();
         for (InventoryItem inventoryItem : inventory) {
-            System.out.println(inventoryItem.getItemType());
+            this.console.println(inventoryItem.getItemType());
         }
     }
    
      private void getTotalCost() throws InventoryControlException {
      double totalCost = InventoryControl.calculateTotalCost(ByuiDo.getCurrentGame().getItems()); 
-         System.out.println(totalCost);
+         this.console.println(totalCost);
     }
 }

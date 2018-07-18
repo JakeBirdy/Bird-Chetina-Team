@@ -15,6 +15,6 @@ class StartExistingGameView {
     }
 
     public void displayStartExistingGame() {
-        System.out.println("displayStartExistingGame()");    }
+        this.console.println("displayStartExistingGame()");    }
     
 }

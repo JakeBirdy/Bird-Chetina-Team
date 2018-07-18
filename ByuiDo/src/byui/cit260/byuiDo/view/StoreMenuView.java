@@ -23,7 +23,7 @@ public class StoreMenuView extends View {
         String[] inputs = new String[1];
 
         //Display a description of the view 
-        System.out.println("****************************************************\n"
+        this.console.println("****************************************************\n"
                 + "* Welcome to Walmart shop                                   *\n"
                 + "* Here you can buy all kind of items for  all your          *\n"
                 + "* dating needs.                                             *\n"
@@ -53,7 +53,7 @@ public class StoreMenuView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
         }
         return false;
     }

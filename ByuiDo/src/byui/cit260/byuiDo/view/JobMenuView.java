@@ -20,11 +20,11 @@ public class JobMenuView extends View{
    
     public String[] getInputs() {
 String[] inputs = new String[1];
-        System.out.println("****************************************************");
-        System.out.println("* P - Perform good deeds                           *");
-        System.out.println("* E - End shift, get paid!                         *");
-        System.out.println("* Q - Go back to main menue                        *");
-        System.out.println("****************************************************");
+        this.console.println("****************************************************");
+        this.console.println("* P - Perform good deeds                           *");
+        this.console.println("* E - End shift, get paid!                         *");
+        this.console.println("* Q - Go back to main menue                        *");
+        this.console.println("****************************************************");
         String input = this.getInput("\nEnter letter below:");
         inputs[0] = input;
        return inputs;
@@ -44,7 +44,7 @@ String[] inputs = new String[1];
                 return true;    
 
             default:
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
         }
         return false;
     }

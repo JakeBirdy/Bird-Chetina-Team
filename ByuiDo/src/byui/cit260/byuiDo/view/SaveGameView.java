@@ -17,10 +17,10 @@ class SaveGameView extends View{
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
-        System.out.println("****************************************************");
-        System.out.println("* Save the game by pressing S                      *\n"
+        this.console.println("****************************************************");
+        this.console.println("* Save the game by pressing S                      *\n"
                          + "* or return by pressing Q                          *");
-        System.out.println("****************************************************");
+        this.console.println("****************************************************");
          String menuOption = this.getInput("\nPlease enter the Menu Option");
         inputs[0] = menuOption;
         return inputs;

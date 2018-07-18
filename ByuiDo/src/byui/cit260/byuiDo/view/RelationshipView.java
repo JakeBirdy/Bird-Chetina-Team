@@ -27,12 +27,12 @@ public class RelationshipView extends View {
         //Display a description of the view 
        ArrayList<Relationship> relationshipList = ByuiDo.getCurrentGame().getPlayer().getActor().getRelationships();
        for (int i = 0; i < relationshipList.size(); i++){
-           System.out.println("Relationship: " + relationshipList.get(i).getActorOne().getName() + " and " + relationshipList.get(i).getActorTwo().getName());
-           System.out.println("Relationship score: " + relationshipList.get(i).getRelationshipScore() + "\n");
+           this.console.println("Relationship: " + relationshipList.get(i).getActorOne().getName() + " and " + relationshipList.get(i).getActorTwo().getName());
+           this.console.println("Relationship score: " + relationshipList.get(i).getRelationshipScore() + "\n");
        }
            
         
-        System.out.println("****************************************************\n"
+        this.console.println("****************************************************\n"
                 + "* Here you can see the  compatibility/level                 *\n"
                 + "  the relationship with all actors!                         *\n"
                 + "* Q - Exit                                                  *\n"
@@ -51,7 +51,7 @@ public class RelationshipView extends View {
                 return true;
 
             default:
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
                 return false;
         }
         

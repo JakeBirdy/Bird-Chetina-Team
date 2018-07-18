@@ -29,9 +29,9 @@ public class ConversationViewTwo extends View {
         try {
             actor = GameControl.getNPCByPoint(currentLocation);
         } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }
-        System.out.println(actor.getConversation()[1].getQuestion());
+        this.console.println(actor.getConversation()[1].getQuestion());
         String menuOption = this.getInput(actor.getConversation()[1].getOptions());
         inputs[1] = menuOption;
         return inputs;
@@ -51,7 +51,7 @@ public class ConversationViewTwo extends View {
             Relationship relationship = GameControl.findRelationship(actor);
                    relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
         } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }
         }
         return true;

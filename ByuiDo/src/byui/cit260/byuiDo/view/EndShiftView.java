@@ -24,9 +24,9 @@ class EndShiftView extends View{
     
     public String[] getInputs() {
         String[] inputs = new String[2];
-        System.out.println("****************************************************");
-        System.out.println("* Enter hours worked and how much we pay you       *");
-        System.out.println("****************************************************");
+        this.console.println("****************************************************");
+        this.console.println("* Enter hours worked and how much we pay you       *");
+        this.console.println("****************************************************");
         String hours = this.getInput("\nEnter hours");
         inputs[0] = hours;
         String pay = this.getInput("\nEnter pay");
@@ -41,13 +41,13 @@ class EndShiftView extends View{
         try{
         hours = Double.parseDouble(inputs[0]);
         } catch (NumberFormatException nfe) {
-            System.out.println("Enter a number");
+            this.console.println("Enter a number");
        return false;
         }
          try{   
         pay = Double.parseDouble(inputs[1]);
          } catch (NumberFormatException nfe) {
-             System.out.println("Enter a number");
+             this.console.println("Enter a number");
              return false;
          }
         double wage = 0;
@@ -59,7 +59,7 @@ class EndShiftView extends View{
         }
 
        
-        System.out.println("your wage is: " + wage);
+        this.console.println("your wage is: " + wage);
 //double hours = jobControl.calculateWage(0, 0)
         return true;
     }

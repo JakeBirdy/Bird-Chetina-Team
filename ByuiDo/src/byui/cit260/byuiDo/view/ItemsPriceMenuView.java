@@ -28,15 +28,15 @@ public class ItemsPriceMenuView extends View{
         String[] inputs = new String[2];
 
         //Display a description of the view 
-        System.out.println("****************************************************");
-        System.out.println("* There is a list of items you can purchase in our *");
-        System.out.println("* store. You can buy no more than 20 items.        *");
-        System.out.println("* C - Calculator...$12.00                          *");
-        System.out.println("* Z - Freezby......$5.00                           *");
-        System.out.println("* F - Flowers......$6.00                           *");
-        System.out.println("* T - Gym T-shirt..$15.00                          *");
-        System.out.println("* Enjoy your shopping!                             *");
-        System.out.println("****************************************************");
+        this.console.println("****************************************************");
+        this.console.println("* There is a list of items you can purchase in our *");
+        this.console.println("* store. You can buy no more than 20 items.        *");
+        this.console.println("* C - Calculator...$12.00                          *");
+        this.console.println("* Z - Freezby......$5.00                           *");
+        this.console.println("* F - Flowers......$6.00                           *");
+        this.console.println("* T - Gym T-shirt..$15.00                          *");
+        this.console.println("* Enjoy your shopping!                             *");
+        this.console.println("****************************************************");
         //valid = false
         String item = this.getInput("\nEnter the item you want to purchase");
         inputs[0] = item;
@@ -66,7 +66,7 @@ public class ItemsPriceMenuView extends View{
                 return true;
 
             default:
-                System.out.println("Please enter the valid item");
+                this.console.println("Please enter the valid item");
                 return false;
         }
         double amount = 0;
@@ -75,21 +75,21 @@ public class ItemsPriceMenuView extends View{
         try{
         amount = Double.parseDouble(inputs[0]);
         } catch (NumberFormatException nfe) {
-            System.out.println("Enter a number");
+            this.console.println("Enter a number");
        return false;
         }
         
         try {
             total = StoreControl.calcTotalPrice(15, amount);
         } catch (StoreControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
             return false;
         }
         
         
         
     
-        System.out.println("Thank you for the purchase from Walmart!");
+        this.console.println("Thank you for the purchase from Walmart!");
 
         return true;
     }
