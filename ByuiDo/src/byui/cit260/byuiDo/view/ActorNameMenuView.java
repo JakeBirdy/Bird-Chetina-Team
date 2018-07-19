@@ -14,6 +14,10 @@ import byui.cit260.byuiDo.control.GameControl;
  */
 public class ActorNameMenuView extends View {
 
+    static void printRelationshipScore(String filePath) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public ActorNameMenuView() {
     }
 
@@ -32,6 +36,7 @@ public class ActorNameMenuView extends View {
                 + "* D - David                                        *\n"
                 + "* A - Anna                                         *\n"
                 + "* G - Gabby                                        *\n"
+                + "* P - Print the list                               *\n"
                 + "* Q - Exit                                         *\n"
                 + "****************************************************");
 
@@ -57,6 +62,9 @@ public class ActorNameMenuView extends View {
                 break;
             case "G":
                 engaged = this.propose(Actor.John);
+                 break;
+            case "P":
+                this.printRelationshipScore();
                 break;
             case "Q":
                 return true;
@@ -97,6 +105,11 @@ public class ActorNameMenuView extends View {
             
         return engaged;
 
+    }
+
+    private void printRelationshipScore() {
+        PrintRelationshipScoreView relationshipScore = new PrintRelationshipScoreView();
+        relationshipScore.display();
     }
 }
 

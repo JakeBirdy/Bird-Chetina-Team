@@ -24,7 +24,7 @@ public class MoveActorView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[2];
-       this.console.println("Enter your x then y coordinate to move character.");
+        this.console.println("Enter your x then y coordinate to move character.");
 
         String input1 = this.getInput("Enter an x value:");
         inputs[0] = input1;
