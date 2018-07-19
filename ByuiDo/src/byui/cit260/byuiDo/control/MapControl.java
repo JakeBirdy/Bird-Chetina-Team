@@ -61,13 +61,13 @@ public class MapControl {
         locations[1][4] = new Location("Buildings, no interest to you", 1, 4, false, '_', false);
         locations[2][0] = new QuestionLocation(true, "gym", "Where we work out our buns and theighs", 2, 0, false, 'G', false);
         locations[2][1] = new Location("Swimming pool", 2, 1, false, '_', false);
-        locations[2][2] = new Location("Temple, where you can propose to your beloved one!", 2, 2, false, '_', false);
+        locations[2][2] = new Location("Stadium, outdoor activities", 2, 2, false, '_', false);
         locations[2][3] = new Location("AppleBees, restaurant", 2, 3, false, '_', false);
         locations[2][4] = new QuestionLocation(true, "math Lab", "Maybe we should give up hope of finding someone and do our homework...!", 2, 4, false, 'T', false);
         locations[3][0] = new Location("David O. McKay Library | BYU-Idaho", 3, 0, false, '_', false);
         locations[3][1] = new Location("Street with students, no one looks interested in you", 3, 1, false, '_', false);
         locations[3][2] = new Location("Mountain Lofts luxury  apartment complex", 3, 2, false, '_', false);
-        locations[3][3] = new Location("Stadium, outdoor activities", 3, 3, false, '_', false);
+        locations[3][3] = new Location("Temple, where you can propose to your beloved one!", 3, 3, false, '_', false);
         locations[3][4] = new Location("BYU-I Crossroads Food Court", 3, 4, false, '_', false);
         locations[4][0] = new Location("Church building, church gatherings each Sunday at 9am", 4, 0, false, '_', false);
         locations[4][1] = new Location("Centre Square Apartments", 4, 1, false, '_', false);
