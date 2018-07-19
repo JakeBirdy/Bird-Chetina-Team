@@ -1,0 +1,9 @@
+
+
+             Inventory Items Report           
+
+Name            CostDescription
+guitar                  300.00A fine crafted Guitar
+frizbee                  10.00A fine crafted frizbee
+calculator               50.00A fine crafted calculator
+gymClothes               60.00Finely crafted clothes

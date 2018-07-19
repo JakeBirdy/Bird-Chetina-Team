@@ -27,6 +27,7 @@ String[] inputs = new String[1];
         this.console.println("****************************************************\n"
         + "* What do you want to do?                                           *\n"
         + "* T - Get total price of all items                                  *\n"        
+        + "* S - Show list                                                     *\n"
         + "* P - Print list                                                    *\n"
         + "* Q - Go back                                                       *\n"
         + "*********************************************************************");
@@ -39,8 +40,11 @@ String[] inputs = new String[1];
 String menuItem = inputs[0];
         menuItem = menuItem.toUpperCase();
         switch (menuItem) {
-           case "P":
+           case "S":
                 this.listItems();
+                break;
+           case "P":
+                this.printInventoryItems();
                 break;
            case "T":
 { //!!!!!!!!!!!!!!!!!check this later!!!!!!!!!!!!!!!!!!!!!!
@@ -70,5 +74,10 @@ String menuItem = inputs[0];
      private void getTotalCost() throws InventoryControlException {
      double totalCost = InventoryControl.calculateTotalCost(ByuiDo.getCurrentGame().getItems()); 
          this.console.println(totalCost);
+    }
+
+    private void printInventoryItems() {
+        PrintInventoryItemsView printInventoryItems = new PrintInventoryItemsView();
+        printInventoryItems.display();
     }
 }

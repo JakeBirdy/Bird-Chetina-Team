@@ -37,7 +37,7 @@ public class PrintRelationshipScoreView extends View {
         try (PrintWriter out = new PrintWriter(filePath)){
             this.console.println("The list of relationship score was printed successfully to" + filePath);
             ArrayList<Relationship> relationships = ByuiDo.getCurrentGame().getPlayer().getActor().getRelationships();
-            out.println("\n\n Relationship Score Report");
+            out.println("\n\n               Relationship Score Report");
             out.printf("%n %-20s %10s", "Name", "Score");
             
             for (Relationship relationship : relationships) {
