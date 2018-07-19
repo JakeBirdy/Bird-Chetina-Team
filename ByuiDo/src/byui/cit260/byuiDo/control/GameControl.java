@@ -11,6 +11,7 @@ import byui.cit260.byuiDo.model.Actor;
 import byui.cit260.byuiDo.model.Game;
 import byui.cit260.byuiDo.model.InventoryItem;
 import byui.cit260.byuiDo.model.InventoryItemType;
+import byui.cit260.byuiDo.model.Location;
 import byui.cit260.byuiDo.model.Map;
 import byuido.ByuiDo;
 import byui.cit260.byuiDo.model.Player;
@@ -225,59 +226,58 @@ public class GameControl {
         return 1; // that are engagged
     }
 
-    public static void saveGame(Game game, String fileName) throws GameControlException{
-        
-          try(FileOutputStream fops = new FileOutputStream(fileName)) {
-           ObjectOutputStream output = new ObjectOutputStream(fops);
-           
-           output.writeObject(game); 
-       }
-       catch(Exception e) {
-           throw new GameControlException(e.getMessage());
-       }
-    }
-    
-    public static void getSavedGame(String filePath) 
-                       throws GameControlException {
-       Game game = null;
-       try(FileInputStream fips = new FileInputStream(filePath)) {
-           ObjectInputStream input = new ObjectInputStream(fips);
-           
-           game = (Game) input.readObject();
-       }
-       catch (Exception e) {
-           throw new GameControlException(e.getMessage());
-       }
-       //close the output file
-       ByuiDo.setCurrentGame(game);
-        //save Game
- }
+    public static void saveGame(Game game, String fileName) throws GameControlException {
 
-    
-    public static Game getGame(String filePath) throws GameControlException{
-    if(filePath == null){
-        throw new GameControlException("Invalid file path");
-    }
-    Game game = null;
-     try(FileInputStream fips = new FileInputStream(filePath)) {
-           ObjectInputStream input = new ObjectInputStream(fips);
-           
-         game = (Game) input.readObject();
-         ByuiDo.setCurrentGame(game);
-         ByuiDo.setPlayer(game.getPlayer());
-       }
-       catch (Exception e) {
-           throw new GameControlException(e.getMessage());
-       }
-        
-       
-        //save Game
+        try (FileOutputStream fops = new FileOutputStream(fileName)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
 
- return game;
-  }
-    
+            output.writeObject(game);
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath)
+            throws GameControlException {
+        Game game = null;
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+
+            game = (Game) input.readObject();
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        //close the output file
+        ByuiDo.setCurrentGame(game);
+        //save Game
+    }
+
+    public static Game getGame(String filePath) throws GameControlException {
+        if (filePath == null) {
+            throw new GameControlException("Invalid file path");
+        }
+        Game game = null;
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+
+            game = (Game) input.readObject();
+            ByuiDo.setCurrentGame(game);
+            ByuiDo.setPlayer(game.getPlayer());
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+
+        //save Game
+        return game;
+    }
+
+    public static Actor updateRelationship(Point coordinates) throws GameControlException {
+
+        Actor actor = GameControl.getNPCByPoint(coordinates);
+        Relationship relationship = GameControl.findRelationship(actor);
+        relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
+        
+        return actor;
+
+    }
 }
-// length = ItemType.value().length() length would be put in 
-//private double quantityInStock;
-//    private double requiredAmount;
-//   private double cost;

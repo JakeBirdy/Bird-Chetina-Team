@@ -1,6 +1,6 @@
 
 
- Relationship Score Report
+               Relationship Score Report
 
  Name                      Score
- Anna                            1
+ John                           30

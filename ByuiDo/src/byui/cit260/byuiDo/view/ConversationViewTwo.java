@@ -33,7 +33,7 @@ public class ConversationViewTwo extends View {
         }
         this.console.println(actor.getConversation()[1].getQuestion());
         String menuOption = this.getInput(actor.getConversation()[1].getOptions());
-        inputs[1] = menuOption;
+        inputs[0] = menuOption;
         return inputs;
     }
 
@@ -41,18 +41,15 @@ public class ConversationViewTwo extends View {
     public boolean doAction(String[] inputs) {
            Point currentLocation = ByuiDo.getCurrentGame().getPlayer().getActor().getCoordinates();
         Actor actor = null;
-        
-     
-        if(inputs[1].equals(actor.getConversation()[1].getAnswer())){
-            ConversationViewThree view = new ConversationViewThree();
-            view.display();
-            try {
-            actor = GameControl.getNPCByPoint(currentLocation);
-            Relationship relationship = GameControl.findRelationship(actor);
-                   relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
+        try {
+            actor = GameControl.updateRelationship(currentLocation);
         } catch (GameControlException ex) {
             this.console.println(ex.getMessage());
         }
+     
+        if (inputs[0].trim().toUpperCase().equals(actor.getConversation()[1].getAnswer())) {
+            ConversationViewThree view = new ConversationViewThree();
+            view.display();
         }
         return true;
             

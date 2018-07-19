@@ -19,6 +19,8 @@ import java.util.logging.Logger;
  * @author tanya
  */
 public class ConversationView extends View {
+    
+    
 
     public ConversationView() {
     }
@@ -28,6 +30,7 @@ public class ConversationView extends View {
         String[] inputs = new String[1];
         Point currentLocation = ByuiDo.getCurrentGame().getPlayer().getActor().getCoordinates();
         Actor actor = null;
+        
         try {
             actor = GameControl.getNPCByPoint(currentLocation);
         } catch (GameControlException ex) {
@@ -39,38 +42,30 @@ public class ConversationView extends View {
             return inputs;
         }
         this.console.println(actor.getConversation()[0].getQuestion());
+        this.console.println(" E - End conversation");
         String menuOption = this.getInput(actor.getConversation()[0].getOptions());
         inputs[0] = menuOption;
+        
+                
         return inputs;
     }
 
     @Override
     public boolean doAction(String[] inputs) {
-        if (inputs[0].equals("Q")){
+        if (inputs[0].equals("E")){
             return true;
         }
         Point currentLocation = ByuiDo.getCurrentGame().getPlayer().getActor().getCoordinates();
         Actor actor = null;
         try {
-            actor = GameControl.getNPCByPoint(currentLocation);
-            Relationship relationship = GameControl.findRelationship(actor);
-            relationship.setRelationshipScore(relationship.getRelationshipScore() + 1);
+            actor = GameControl.updateRelationship(currentLocation);
         } catch (GameControlException ex) {
             this.console.println(ex.getMessage());
         }
 
-        if (inputs[0].equals(actor.getConversation()[0].getAnswer())) {
+        if (inputs[0].trim().toUpperCase().equals(actor.getConversation()[0].getAnswer())) {
             ConversationViewTwo view = new ConversationViewTwo();
             view.display();
-
-            try {
-                actor = GameControl.getNPCByPoint(currentLocation);
-                Relationship relationship = GameControl.findRelationship(actor);
-                relationship.setRelationshipScore(relationship.getRelationshipScore() + 10);
-            } catch (GameControlException ex) {
-                this.console.println(ex.getMessage());
-            }
-
         }
         return true;
 
