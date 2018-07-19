@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public enum Actor implements Serializable {
 
-    PlayerGuy("PlayerGuy", "He is Awesome", new Point(1,1), "Male", "1 + 1", "2", 
+    PlayerGuy("PlayerGuy", "He is Awesome", new Point(0,0), "Male", "1 + 1", "2", 
             new Question[]{new Question("question", "answer", "Options"), 
             new Question("question", "answer", "options"), 
             new Question("question", "answer", "options")} ),
