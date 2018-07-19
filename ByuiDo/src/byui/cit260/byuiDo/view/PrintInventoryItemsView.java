@@ -36,12 +36,13 @@ public class PrintInventoryItemsView extends View {
             this.console.println("The list of Items were printed  out successfully to: " + filePath);
             ArrayList<InventoryItem> items = ByuiDo.getCurrentGame().getItems();
             out.println("\n\n             Inventory Items Report           ");
-            out.printf("%n%-10s%10s%10s", "Name", "Cost", "Description");
+            out.printf("%n%-10s%20s%5s%-40s", "Name", "Cost", "    ", "Description");
             
          
             for (InventoryItem item : items) {
-                out.printf("%n%-10s%20.2f%20s", item.getItemType()
+                out.printf("%n%-10s%20.2f%5s%-40s", item.getItemType()
                                               , item.getCost()
+                                              , "     "
                                               , item.getDescription());
                         
             }

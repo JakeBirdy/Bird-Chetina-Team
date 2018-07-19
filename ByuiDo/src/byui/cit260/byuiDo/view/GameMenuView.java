@@ -103,7 +103,13 @@ String menuItem = inputs[0];
             this.console.print(row+1 + "|");
             for (int column = 0; column < locations.length; column++) {
                 Location location = locations[row][column];
-                if (location.isVisited()) {
+               if(game.getPlayer().getActor().getCoordinates().x  == column && game.getPlayer().getActor().getCoordinates().y  == row){
+                   
+                   this.console.print(" & ");
+                   
+               }
+                
+               else if (location.isVisited()) {
                     this.console.print(" " + location.getDisplaySymbol() + " ");
                 }
                 else{
